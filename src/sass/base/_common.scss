@@ -1,0 +1,28 @@
+@import "~node_modules/modern-normalize/modern-normalize.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Quicksand";
+  background-color: #ffffff;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.container {
+  width: 1504px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 48px;
+  padding-left: 48px;
+  outline: 2px solid red;
+}

@@ -1,0 +1,51 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-img-box">
+      <picture>
+        <source
+          media="(min-width: 1200px)"
+          srcset="
+            ./images/hero/hero-img-desctop@1x.jpg 1x,
+            ./images/hero/hero-img-desctop@2x.jpg 2x
+          "
+        />
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            ./images/hero/hero-img-mobile@1x.jpg 1x,
+            ./images/hero/hero-img-mobile@2x.jpg 2x
+          "
+        />
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            ./images/hero/hero-img-tablet@1x.jpg 1x,
+            ./images/hero/hero-img-tablet@2x.jpg 2x
+          "
+        />
+        <img src="./images/hero/hero-img-desctop@1x.jpg" />
+      </picture>
+      <ul class="hero-tags__list">
+        <li class="hero-tags__item">
+          <p class="hero-tag__text">#Sport</p>
+        </li>
+        <li class="hero-tags__item">
+          <p class="hero-tag__text">#Healthy</p>
+        </li>
+        <li class="hero-tags__item">
+          <p class="hero-tag__text">#Workout</p>
+        </li>
+        <li class="hero-tags__item">
+          <p class="hero-tag__text">#Diet</p>
+        </li>
+      </ul>
+    </div>
+    <div class="hero-text-box">
+      <h1 class="hero__title">Get Body in shape, Stay healthy</h1>
+      <h2 class="hero__subtitle">
+        Transform your physique and embrace a healthier lifestyle with our
+        comprehensive fitness and nutrition support.
+      </h2>
+    </div>
+  </div>
+</section>

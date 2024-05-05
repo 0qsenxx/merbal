@@ -585,6 +585,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"8lqZg":[function(require,module,exports) {
 
-},{}]},["farZc","8lqZg"], "8lqZg", "parcelRequired7c6")
+},{}]},["farZc","8lqZg"], "8lqZg", "parcelRequirec3b5")
 
 //# sourceMappingURL=fovorites.975ef6c8.js.map

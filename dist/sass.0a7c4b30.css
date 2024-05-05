@@ -1,0 +1,65 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin: 0;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Quicksand";
+  background-color: #ffffff;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 1504px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 48px;
+  padding-left: 48px;
+  outline: 2px solid red;
+}
+
+/*# sourceMappingURL=/sass.0a7c4b30.css.map */

@@ -1,0 +1,57 @@
+.quote {
+    margin-bottom: 16px;
+}
+
+.quote-box {
+    display: flex;
+}
+
+.quote-text-box {
+    display: flex;
+    background-color: #7E847F;
+    color: #F6F6F6;
+    border-radius: 50px;
+    width: 704px;
+    height: 302px;
+    padding: 64px;
+    gap: 16px;
+    position: relative;
+}
+
+.quote-text-box-icon {
+    width: 34px;
+}
+
+.quote__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+}
+
+.quote__description {
+    color: rgba(246, 246, 246, 0.60);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 16px;
+    margin-bottom: 30px;
+}
+
+.quote-author__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.quote-text-box-commas-icon {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 32px;
+    right: 64px;
+}
+
+.quote-box-picture {
+    width: 704px;
+    height: 302px;
+}

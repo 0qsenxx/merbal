@@ -245,6 +245,161 @@ button:hover {
   line-height: 24px;
 }
 
+.quote {
+  margin-bottom: 16px;
+}
+
+.quote-box {
+  display: flex;
+}
+
+.quote-text-box {
+  color: #f6f6f6;
+  background-color: #7e847f;
+  border-radius: 50px;
+  gap: 16px;
+  width: 704px;
+  height: 302px;
+  padding: 64px;
+  display: flex;
+  position: relative;
+}
+
+.quote-text-box-icon {
+  width: 34px;
+}
+
+.quote__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
+.quote__description {
+  color: #f6f6f699;
+  margin-top: 16px;
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.quote-author__text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.quote-text-box-commas-icon {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 32px;
+  right: 64px;
+}
+
+.quote-box-picture {
+  width: 704px;
+  height: 302px;
+}
+
+.exercises-section {
+  margin-bottom: 16px;
+}
+
+.exercises {
+  background-color: #e8e8e8;
+  border-radius: 50px;
+  padding: 64px 48px;
+}
+
+.exercises__title {
+  color: #1b1b1b;
+  letter-spacing: -.88px;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.09;
+}
+
+.exercises-btns__list {
+  gap: 8px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.exercises-button {
+  color: #1b1b1b;
+  background-color: #f6f6f6;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.exercises-button:hover {
+  color: #f6f6f6;
+  background-color: #7e847f;
+}
+
+.exercises__list {
+  flex-wrap: wrap;
+  gap: 40px 20px;
+  margin-bottom: 32px;
+  display: flex;
+}
+
+.exercises__item {
+  text-align: center;
+  background: linear-gradient(0deg, #101010b3 0% 100%);
+  border: 1px solid #f6f6f64d;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 313px;
+  height: 250px;
+  display: flex;
+}
+
+.exercises-card__title {
+  color: #f6f6f6;
+  text-align: center;
+  margin-bottom: 2px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.exercises-card__category {
+  color: #f6f6f666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.exercises-cards__pagination {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+
+.exercises-cards__page {
+  color: #1b1b1b66;
+  letter-spacing: .96px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+.active_page {
+  color: #1b1b1b;
+  border: 1px solid #1b1b1b;
+  border-radius: 18px;
+  padding: 0 12px;
+}
+
 .recommendation .container {
   display: flex;
 }

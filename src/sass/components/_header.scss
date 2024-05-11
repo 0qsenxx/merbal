@@ -45,6 +45,7 @@
 
     border-radius: 30px;
     background: rgb(255, 255, 255);
+
     padding-top: 6px;
     padding-left: 26px;
     padding-bottom: 6px;
@@ -62,8 +63,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: 0px;
-    text-align: left;
+
 }
 
 
@@ -75,17 +75,14 @@
 }
 
 .header-contacts__item {
-    
-    box-sizing: border-box;
+
     border: 1px solid rgba(126, 132, 127, 0.2);
     border-radius: 10px;
 }
 
 .header-contacts__link {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+
     padding: 8px;
     fill: rgb(126, 132, 127);
 }

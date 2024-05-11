@@ -179,21 +179,23 @@ button:hover {
 }
 
 .header {
-  margin-top: 16px;
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translate(-50%, 14px);
 }
 
 .header__nav {
-  z-index: 1;
-  margin-top: 24px;
+  align-items: center;
+  gap: 390px;
   display: flex;
-  position: absolute;
 }
 
 .header-nav__list {
   background: #7e847f;
   border-radius: 60px;
   align-items: center;
-  margin-left: 398px;
   padding-top: 8px;
   padding-bottom: 8px;
   display: flex;
@@ -238,7 +240,7 @@ button:hover {
 
 .header-contacts__list {
   align-items: center;
-  margin-left: 350px;
+  gap: 12px;
   display: flex;
 }
 
@@ -246,7 +248,6 @@ button:hover {
   box-sizing: border-box;
   border: 1px solid #7e847f33;
   border-radius: 10px;
-  margin-left: 12px;
 }
 
 .header-contacts__link {
@@ -373,7 +374,7 @@ button:hover {
 }
 
 .footer .container {
-  background: #1b1b1bb3;
+  background-image: linear-gradient(#1b1b1bb3, #1b1b1bb3), url("footer-img-desctop@1x.8c593f99.png");
   border-radius: 50px;
   flex-wrap: wrap;
   width: 1388px;

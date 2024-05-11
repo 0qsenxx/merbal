@@ -1,15 +1,17 @@
 .header {
-    margin-top: 16px;
+    position: absolute;
+    z-index: 1;
+    top:14px;
+    left:50%;
+    transform:translate(-50%, 14px);
 
 }
 
 .header__nav {
-    position: absolute;
-    z-index: 1;
+    align-items: center;
+    gap: 390px;
     display: flex;
-    margin-top: 24px;
 }
-
 
 
 .header-nav__list {
@@ -17,7 +19,6 @@
     padding-bottom: 8px;
     align-items: center;
     display: flex;
-    margin-left: 398px;
     border-radius: 60px;
     background: rgb(126, 132, 127);
 }
@@ -68,13 +69,13 @@
 
 
 .header-contacts__list {
+    gap: 12px;
     display: flex;
-    margin-left: 350px;
     align-items: center;
 }
 
 .header-contacts__item {
-    margin-left: 12px;
+    
     box-sizing: border-box;
     border: 1px solid rgba(126, 132, 127, 0.2);
     border-radius: 10px;

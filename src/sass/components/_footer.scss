@@ -6,7 +6,11 @@
     border-radius: 50px;
     display: flex;
     flex-wrap: wrap;
-    background: rgba(27, 27, 27, 0.7);
+    background-image: linear-gradient(
+        rgba(27, 27, 27, 0.7),
+        rgba(27, 27, 27, 0.7)),
+        url("../images/footer/footer-img-desctop@1x.png");
+
 }
 
 

@@ -1,5 +1,11 @@
+.recommendation {
+  padding-top: 16px;
+}
+
 .recommendation .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .recommendation-img-box {
@@ -9,10 +15,33 @@
 .recommendation-box {
   border-radius: 50px;
   background-color: rgb(27, 27, 27);
-  padding: 64px;
+  padding: 64px 64px 64px 96px;
+  width: 704px;
+  height: 302px;
+  flex-shrink: 0;
+}
+
+.recommendation__span {
+  position: absolute;
+  top: 0;
+  left: -45px;
+  background-color: rgba(246, 246, 246, 0.1);
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.recommendation__svg {
+  width: 16px;
+  height: 12px;
 }
 
 .recommendation__title {
+  position: relative;
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
@@ -39,4 +68,5 @@
   text-align: left;
   color: rgba(246, 246, 246, 0.6);
   margin-top: 25px;
+  max-width: 526px;
 }

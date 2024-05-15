@@ -1,57 +1,83 @@
 .quote {
-    margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .quote-box {
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-quotes-box {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 32px;
+  right: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quote-text-box {
-    display: flex;
-    background-color: #7E847F;
-    color: #F6F6F6;
-    border-radius: 50px;
-    width: 704px;
-    height: 302px;
-    padding: 64px;
-    gap: 16px;
-    position: relative;
+  position: relative;
+  display: flex;
+  background-color: #7e847f;
+  color: #f6f6f6;
+  border-radius: 50px;
+  width: 704px;
+  height: 302px;
+  // padding: 64px;
+  padding: 64px 64px 64px 96px;
+  flex-direction: column;
+  width: 704px;
+  height: 302px;
+  flex-shrink: 0;
+  position: relative;
 }
 
 .quote-text-box-icon {
-    width: 34px;
+  width: 34px;
 }
 
 .quote__title {
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 1.33;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33;
+  position: relative;
+}
+
+.quote__span {
+  width: 32px;
+  height: 32px;
+  padding: 6px 7px;
+  background-color: rgba(246, 246, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: -45px;
 }
 
 .quote__description {
-    color: rgba(246, 246, 246, 0.60);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: 16px;
-    margin-bottom: 30px;
+  color: rgba(246, 246, 246, 0.6);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 16px;
+  margin-bottom: 25px;
+  max-width: 526px;
 }
 
 .quote-author__text {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
-.quote-text-box-commas-icon {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    top: 32px;
-    right: 64px;
-}
-
-.quote-box-picture {
-    width: 704px;
-    height: 302px;
+.quote-img-box {
+  flex-shrink: 0;
 }

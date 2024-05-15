@@ -325,21 +325,36 @@ button:hover {
 }
 
 .quote {
-  margin-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .quote-box {
+  justify-content: center;
+  align-items: center;
   display: flex;
+}
+
+.quote-quotes-box {
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  position: absolute;
+  top: 32px;
+  right: 64px;
 }
 
 .quote-text-box {
   color: #f6f6f6;
   background-color: #7e847f;
   border-radius: 50px;
-  gap: 16px;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 704px;
   height: 302px;
-  padding: 64px;
+  padding: 64px 64px 64px 96px;
   display: flex;
   position: relative;
 }
@@ -352,12 +367,28 @@ button:hover {
   font-size: 24px;
   font-weight: 500;
   line-height: 1.33;
+  position: relative;
+}
+
+.quote__span {
+  background-color: #f6f6f61a;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 6px 7px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: -45px;
 }
 
 .quote__description {
   color: #f6f6f699;
+  max-width: 526px;
   margin-top: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -369,27 +400,14 @@ button:hover {
   line-height: 1.5;
 }
 
-.quote-text-box-commas-icon {
-  width: 48px;
-  height: 48px;
-  position: absolute;
-  top: 32px;
-  right: 64px;
-}
-
-.quote-box-picture {
-  width: 704px;
-  height: 302px;
-}
-
-.exercises-section {
-  margin-bottom: 16px;
+.quote-img-box {
+  flex-shrink: 0;
 }
 
 .exercises {
   background-color: #e8e8e8;
   border-radius: 50px;
-  padding: 64px 48px;
+  padding-top: 64px;
 }
 
 .exercises__title {
@@ -479,7 +497,13 @@ button:hover {
   padding: 0 12px;
 }
 
+.recommendation {
+  padding-top: 16px;
+}
+
 .recommendation .container {
+  justify-content: center;
+  align-items: center;
   display: flex;
 }
 
@@ -490,7 +514,29 @@ button:hover {
 .recommendation-box {
   background-color: #1b1b1b;
   border-radius: 50px;
-  padding: 64px;
+  flex-shrink: 0;
+  width: 704px;
+  height: 302px;
+  padding: 64px 64px 64px 96px;
+}
+
+.recommendation__span {
+  background-color: #f6f6f61a;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 10px 8px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: -45px;
+}
+
+.recommendation__svg {
+  width: 16px;
+  height: 12px;
 }
 
 .recommendation__title {
@@ -500,6 +546,7 @@ button:hover {
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
+  position: relative;
 }
 
 .recommendation__subtitle {
@@ -516,6 +563,7 @@ button:hover {
   letter-spacing: 0;
   text-align: left;
   color: #f6f6f699;
+  max-width: 526px;
   margin-top: 25px;
   font-size: 16px;
   font-weight: 400;
@@ -627,5 +675,9 @@ button:hover {
 
 .footer-final__text:last-child {
   margin-left: 32px;
+}
+
+.test {
+  fill: #000;
 }
 /*# sourceMappingURL=index.b07a87f3.css.map */

@@ -1,0 +1,131 @@
+.favorites-quote {
+    margin-bottom: 16px;
+    padding-top: 116px;
+}
+
+.quote-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-quotes-box {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 32px;
+    right: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quote-text-box {
+    position: relative;
+    display: flex;
+    background-color: #7e847f;
+    color: #f6f6f6;
+    border-radius: 50px;
+    width: 704px;
+    height: 302px;
+    // padding: 64px;
+    padding: 64px 64px 64px 96px;
+    flex-direction: column;
+    width: 704px;
+    height: 302px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.quote-text-box-icon {
+    width: 34px;
+}
+
+.quote__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+    position: relative;
+}
+
+.quote__span {
+    width: 32px;
+    height: 32px;
+    padding: 6px 7px;
+    background-color: rgba(246, 246, 246, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: -45px;
+}
+
+.quote__description {
+    color: rgba(246, 246, 246, 0.6);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 16px;
+    margin-bottom: 25px;
+    max-width: 526px;
+}
+
+.quote-author__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.favorites-quote-img-box {
+    flex-shrink: 0;
+    width: 352px;
+    height: 302px;
+}
+
+.favorites-quote-box-picture {
+    width: 352px;
+    height: 302px;
+}
+
+.favorites-quote-img-box-images {
+    width: 352px;
+    height: 302px;
+}
+
+.quote-sport-box {
+    padding: 105px 110px;
+    width: 352px;
+    height: 302px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    border-radius: 50px;
+    background: #FFF;
+
+}
+
+.quote-sport-box-time {
+    color: #1B1B1B;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.33;
+}
+
+.quote-sport-box-text {
+    color: rgba(27, 27, 27, 0.60);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28;
+    margin-top: 6px;
+}
+
+.quotes__svg {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}

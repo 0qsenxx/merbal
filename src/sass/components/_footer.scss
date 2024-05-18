@@ -28,7 +28,6 @@
 
 .footer-contacts__item {
   margin-right: 12px;
-  box-sizing: border-box;
   border: 1px solid rgba(246, 246, 246, 0.2);
   border-radius: 10px;
 }
@@ -69,8 +68,12 @@
 }
 
 .footer-form__input {
-  max-width: 352px;
-  padding: 12px 298px 12px 14px;
+  color: #FFF;
+ width: 352px;
+ padding-top: 12px;
+ padding-left: 14px;
+ padding-right: 14px;
+ padding-bottom: 12px;
   /* Inside Auto Layout */
   background: transparent;
   margin: 20px 0px;
@@ -82,8 +85,7 @@
   color: rgb(246, 246, 246);
   max-width: 352px;
   /* Auto layout */
-  display: flex;
-  align-items: center;
+
   padding: 12px 157px 12px 157px;
   /* Inside Auto Layout */
   border-radius: 30px;
@@ -110,8 +112,4 @@
 
 .footer-final__text:last-child {
   margin-left: 32px;
-}
-
-.test {
-    fill: black;
 }

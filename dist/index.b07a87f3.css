@@ -595,7 +595,6 @@ button:hover {
 }
 
 .footer-contacts__item {
-  box-sizing: border-box;
   border: 1px solid #f6f6f633;
   border-radius: 10px;
   margin-right: 12px;
@@ -637,22 +636,21 @@ button:hover {
 }
 
 .footer-form__input {
+  color: #fff;
   background: none;
   border: 1px solid #f6f6f6;
   border-radius: 30px;
-  max-width: 352px;
+  width: 352px;
   margin: 20px 0;
-  padding: 12px 298px 12px 14px;
+  padding: 12px 14px;
 }
 
 .footer-form__btn {
   color: #f6f6f6;
   background: #7e847f;
   border-radius: 30px;
-  align-items: center;
   max-width: 352px;
   padding: 12px 157px;
-  display: flex;
 }
 
 .footer-form__btn:hover {
@@ -675,9 +673,5 @@ button:hover {
 
 .footer-final__text:last-child {
   margin-left: 32px;
-}
-
-.test {
-  fill: #000;
 }
 /*# sourceMappingURL=index.b07a87f3.css.map */

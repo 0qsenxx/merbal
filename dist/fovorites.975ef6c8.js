@@ -584,32 +584,230 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"8lqZg":[function(require,module,exports) {
-var _exercises = require("./js/exercises");
+var _exercises = require("./js/exercises/exercises");
 
-},{"./js/exercises":"c1uSL"}],"c1uSL":[function(require,module,exports) {
+},{"./js/exercises/exercises":"5a9Qy"}],"5a9Qy":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _getMuscleExercises = require("./getMuscleExercises");
+var _getMuscleExercisesDefault = parcelHelpers.interopDefault(_getMuscleExercises);
+var _getBodyPartsExercises = require("./getBodyPartsExercises");
+var _getBodyPartsExercisesDefault = parcelHelpers.interopDefault(_getBodyPartsExercises);
 const exercisesListRef = document.querySelector(".exercises__list");
-async function getMusculeExercises() {
+const exercisesBtnsListRef = document.querySelector(".exercises-btns__list");
+const exercisesPaginationRef = document.querySelector(".exercises-cards__pagination");
+(0, _getMuscleExercisesDefault.default)();
+exercisesBtnsListRef.addEventListener("click", (evt)=>{
+    if (evt.target.nodeName === "UL" || evt.target.nodeName === "LI") return;
+    exercisesListRef.innerHTML = ``;
+    exercisesPaginationRef.innerHTML = ``;
+    if (evt.target.hasAttribute("data-muscles")) (0, _getMuscleExercisesDefault.default)();
+    if (evt.target.hasAttribute("data-body-parts")) (0, _getBodyPartsExercisesDefault.default)();
+}); // fetch(
+ //   `https://energyflow.b.goit.study/api/filters?filter=Muscles&page=2`
+ // )
+ //   .then(res => res.json())
+ //   .then(data => {
+ //     console.log(data);
+ //   });
+
+},{"./getBodyPartsExercises":"fHR5o","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./getMuscleExercises":"lpumY"}],"fHR5o":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getBodyPartsExercises);
+var _getExercisesByUrl = require("./getExercisesByUrl");
+var _getExercisesByUrlDefault = parcelHelpers.interopDefault(_getExercisesByUrl);
+var _bodyPartsExercisesMarkup = require("./exercises-marup/bodyPartsExercisesMarkup");
+var _bodyPartsExercisesMarkupDefault = parcelHelpers.interopDefault(_bodyPartsExercisesMarkup);
+const exercisesListRef = document.querySelector(".exercises__list");
+const exercisesPaginationRef = document.querySelector(".exercises-cards__pagination");
+function getBodyPartsExercises() {
+    let activeButton = null;
+    const loadExercises = (url)=>{
+        (0, _getExercisesByUrlDefault.default)(url).then((data)=>{
+            exercisesListRef.innerHTML = "";
+            data.results.forEach((exercise)=>{
+                exercisesListRef.insertAdjacentHTML("beforeend", (0, _bodyPartsExercisesMarkupDefault.default)(exercise));
+            });
+        });
+    };
+    const setupPagination = (totalPages)=>{
+        exercisesPaginationRef.innerHTML = "";
+        for(let i = 0; i < totalPages; i++)exercisesPaginationRef.insertAdjacentHTML("beforeend", `<li class="exercises-pagination__item">
+          <button class="exercises-cards__page">${i + 1}</button>
+        </li>`);
+        activeButton = exercisesPaginationRef.querySelector("button");
+        if (activeButton) activeButton.classList.add("exercises-active-page");
+    };
+    (0, _getExercisesByUrlDefault.default)(`https://energyflow.b.goit.study/api/exercises?page=1&bodypart=waist&limit=9`).then((data)=>{
+        setupPagination(data.totalPages);
+        loadExercises(`https://energyflow.b.goit.study/api/exercises?page=1&bodypart=waist&limit=9`);
+        exercisesPaginationRef.addEventListener("click", (evt)=>{
+            if (evt.target.nodeName !== "BUTTON") return;
+            if (activeButton) activeButton.classList.remove("exercises-active-page");
+            activeButton = evt.target;
+            activeButton.classList.add("exercises-active-page");
+            const page = evt.target.textContent;
+            loadExercises(`https://energyflow.b.goit.study/api/exercises?page=${page}&bodypart=waist&limit=9`);
+        });
+    });
+}
+
+},{"./getExercisesByUrl":"jU35g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./exercises-marup/bodyPartsExercisesMarkup":"f3Fz3"}],"jU35g":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getExercisesByUrl);
+async function getExercisesByUrl(url) {
     try {
-        const res = await fetch(`https://energyflow.b.goit.study/api/filters?filter=Muscles&page=1&limit=12`);
+        const res = await fetch(url);
         const data = await res.json();
         return data;
     } catch (err) {
         console.log("err", err);
     }
 }
-getMusculeExercises().then((data)=>{
-    console.log(data);
-    //   console.log(data.results.sort((a, b) => a.name.localeCompare(b.name)));
-    data.results.forEach((exercise)=>{
-        exercisesListRef.insertAdjacentHTML("afterbegin", `<li class="exercises__item">
-        <div class="exercises__wrap">
-            <h3 class="exercises-card__title">${exercise.name}</h3>
-            <p class="exercises-card__category">${exercise.filter}</p>
-        </div>
-       </li>`);
-    });
-});
 
-},{}]},["farZc","8lqZg"], "8lqZg", "parcelRequirec3b5")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"f3Fz3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>bodyPartsExercisesMarkup);
+function bodyPartsExercisesMarkup({ rating, name, burnedCalories, time, bodyPart, target }) {
+    return `<li class="body-parts__item">
+    <div class="body-parts-header-box">
+      <div class="body-parts-header-train-box">
+        <p class="body-parts-workout__text">WORKOUT</p>
+        <p class="body-parts-raiting__text">
+          ${rating}<span class="body-parts-raiting__span">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" viewBox="0 0 14 13" fill="none">
+            <path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#EEA10C"/>
+          </svg>
+        </span>
+        </p>
+      </div>
+      <div class="body-parts-header-start-box">
+        <p class="body-parts-start__text">
+          Start
+          <span class="body-parts-start__span">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#1B1B1B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        </p>
+      </div>
+    </div>
+    <h2 class="body-parts__title">
+      <span class="body-parts-title__span">
+        <svg width="14" height="16">
+          <use href="../images/symbol-defs.svg#icon-running"></use>
+        </svg>
+      </span>
+      ${name[0].toUpperCase() + name.slice(1)}
+    </h2>
+    <div class="body-parts-about-box">
+      <p class="body-parts-about__title">
+        Burned calories:
+        <span class="body-parts-about__span">${burnedCalories} / ${time} min</span>
+      </p>
+      <p class="body-parts-about__title">
+        Body part: <span class="body-parts-about__span">${bodyPart[0].toUpperCase() + bodyPart.slice(1)}</span>
+      </p>
+      <p class="body-parts-about__title">
+        Target: <span class="body-parts-about__span">${target[0].toUpperCase() + target.slice(1)}</span>
+      </p>
+    </div>
+  </li>`;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lpumY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getMusclesExercises);
+var _getExercisesByUrl = require("./getExercisesByUrl");
+var _getExercisesByUrlDefault = parcelHelpers.interopDefault(_getExercisesByUrl);
+var _muscleExercisesMarkup = require("./exercises-marup/muscleExercisesMarkup");
+var _muscleExercisesMarkupDefault = parcelHelpers.interopDefault(_muscleExercisesMarkup);
+const exercisesListRef = document.querySelector(".exercises__list");
+const exercisesPaginationRef = document.querySelector(".exercises-cards__pagination");
+function getMusclesExercises() {
+    let activeButton = null;
+    const loadExercises = (url)=>{
+        (0, _getExercisesByUrlDefault.default)(url).then((data)=>{
+            exercisesListRef.innerHTML = "";
+            data.results.forEach((exercise)=>{
+                exercisesListRef.insertAdjacentHTML("afterbegin", (0, _muscleExercisesMarkupDefault.default)(exercise));
+                const exerciseItem = document.querySelector(".exercises__item");
+                if (exerciseItem) exerciseItem.style.backgroundImage = `linear-gradient(
+            0deg,
+            rgba(16, 16, 16, 0.7) 0%,
+            rgba(16, 16, 16, 0.7) 100%
+          ), url(${exercise.imgUrl})`;
+            });
+        });
+    };
+    const setupPagination = (totalPages)=>{
+        exercisesPaginationRef.innerHTML = "";
+        for(let i = 0; i < totalPages; i++)exercisesPaginationRef.insertAdjacentHTML("beforeend", `<li class="exercises-pagination__item">
+          <button class="exercises-cards__page">${i + 1}</button>
+        </li>`);
+        activeButton = exercisesPaginationRef.querySelector("button");
+        if (activeButton) activeButton.classList.add("exercises-active-page");
+    };
+    (0, _getExercisesByUrlDefault.default)(`https://energyflow.b.goit.study/api/filters?filter=Muscles&page=1&limit=12`).then((data)=>{
+        setupPagination(data.totalPages);
+        loadExercises(`https://energyflow.b.goit.study/api/filters?filter=Muscles&page=1&limit=12`);
+        exercisesPaginationRef.addEventListener("click", (evt)=>{
+            if (evt.target.nodeName !== "BUTTON") return;
+            if (activeButton) activeButton.classList.remove("exercises-active-page");
+            activeButton = evt.target;
+            activeButton.classList.add("exercises-active-page");
+            const page = evt.target.textContent;
+            loadExercises(`https://energyflow.b.goit.study/api/filters?filter=Muscles&page=${page}&limit=12`);
+        });
+    });
+}
+
+},{"./getExercisesByUrl":"jU35g","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./exercises-marup/muscleExercisesMarkup":"bgZPv"}],"bgZPv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>muscleExercisesMarkup);
+function muscleExercisesMarkup({ name, filter }) {
+    return `<li class="exercises__item">
+    <div class="exercises__wrap">
+        <h3 class="exercises-card__title">${name[0].toUpperCase() + name.slice(1)}</h3>
+        <p class="exercises-card__category">${filter}</p>
+    </div>
+   </li>`;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["farZc","8lqZg"], "8lqZg", "parcelRequirec3b5")
 
 //# sourceMappingURL=fovorites.975ef6c8.js.map

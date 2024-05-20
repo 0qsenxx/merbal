@@ -1,1 +1,1 @@
-import './js/exercises';
+import './js/exercises/exercises';

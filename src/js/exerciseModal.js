@@ -2,19 +2,56 @@ import getExercise from "./exercisesAPI.js"
 const body = document.querySelector("body")
 const openBtn = document.querySelectorAll(".show-more")
 openBtn.forEach(el => el.addEventListener("click", onOpenModal))
+let isFavorite = false
+
 async function onOpenModal(e) {
     const exerciseId = e.currentTarget.dataset.id
     const currentExercise = await getExercise(exerciseId)
-    renderExerciseModal(currentExercise)
+    if (localStorage.getItem("favorites")) {
+        const favorites = JSON.parse(localStorage.getItem("favorites"))
+        if (favorites.includes(currentExercise)) {
+            isFavorite = true
+        } else {
+            isFavorite = false
+        }
+    }
+    console.log(isFavorite)
+    renderExerciseModal(currentExercise, isFavorite)
     const closeBtn = document.querySelector(".close-btn")
     closeBtn.addEventListener("click", onClose)
+    const addToFavoriteBtn = document.querySelector(".modal-add-favorite-btn")
+    const removeFavoriteBtn = document.querySelector(".modal-remove-favorite-btn")
+    if (addToFavoriteBtn) {
+        addToFavoriteBtn.addEventListener("click", onAddFavorite)
+    }
+    if (removeFavoriteBtn) {
+        removeFavoriteBtn.addEventListener("click", onRemoveFavorite)
+    }
+    const addRatingBtn = document.querySelector(".modal-add-rating-btn")
+    // addRatingBtn.addEventListener("click", onAddRating)
+    function onAddFavorite() {
+        const favorites = JSON.parse(localStorage.getItem("favorites"))
+        isFavorite = true
+        favorites.push(currentExercise)
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+        console.log(isFavorite)
+    }
+    function onRemoveFavorite() {
+        const favorites = JSON.parse(localStorage.getItem("favorites"))
+        isFavorite = false
+        const newFavorites = favorites.filter(el => el._id !== currentExercise._id)
+        // const index = favorites.indexOf(currentExercise)
+        localStorage.setItem("favorites", JSON.stringify(newFavorites))
+        console.log(newFavorites)
+        console.log(favorites)
+    }
 }
 function onClose() {
     const backdrop = document.querySelector(".backdrop")
     backdrop.remove()
 }
 
-function renderExerciseModal({ name, equipment, burnedCalories, bodyPart, popularity, _id, time, target, rating, gifUrl }) {
+function renderExerciseModal({ name, equipment, burnedCalories, bodyPart, popularity, _id, time, target, rating, gifUrl }, isFavorite) {
     const markUp = `
     <div class="backdrop">
 <div class="modal">
@@ -33,7 +70,7 @@ function renderExerciseModal({ name, equipment, burnedCalories, bodyPart, popula
                 </svg></li>
             <li class="modal-rating-item"><svg class="modal-rating-stars grey-star">
                     <use href="./images/symbol-defs.svg#icon-star"></use>
-                </svg></li>
+                </svg></li>${[1, 2, 3, 4, 5].map((el, i) => i < rating ? 1 : 2)}
         </ul>
     </div>
     <ul class="modal-details-list">
@@ -63,16 +100,21 @@ function renderExerciseModal({ name, equipment, burnedCalories, bodyPart, popula
         They're essential for maintaining posture, stability, and generating force in many movements. Exercises
         that target the abs include crunches, leg raises, and planks.</p>
     <div class="modal-btn-wrap">
-        <button type="button" class="modal-add-favorite-btn modal-btn">Add to favorite<svg
+    ${!isFavorite ? `<button type="button" class="modal-remove-favorite-btn modal-btn">Remove favorite<svg
                 class="modal-btn-heart">
                 <use href="./images/symbol-defs.svg#icon-heart"></use>
-            </svg></button>
-        <button type="button" class="modal-add-rating-btn modal-btn">Give a rating</button>
-    </div>
-</div>
-</div>
-</div>
-</div>
+            </svg></button>`
+            : `<button type="button" class="modal-add-favorite-btn modal-btn">Add to favorite<svg
+                class="modal-btn-heart">
+                <use href="./images/symbol-defs.svg#icon-heart"></use>
+            </svg></button>`
+        }
+<button type="button" class="modal-add-rating-btn modal-btn">Give a rating</button>
+    </div >
+</div >
+</div >
+</div >
+</div >
     `
     body.insertAdjacentHTML("afterbegin", markUp)
 }

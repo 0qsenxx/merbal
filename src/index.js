@@ -1,4 +1,4 @@
-import './js/exercises';
+import './js/exercises/exercises';
 import './js/footer';
 import './js/exercisesAPI'
 import './js/favorites';

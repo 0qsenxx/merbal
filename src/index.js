@@ -1,5 +1,5 @@
-exercises-js
 import './js/exercises/exercises';
 import './js/footer';
+import './js/exercisesAPI'
 import './js/favorites';
-main
+import './js/exerciseModal'

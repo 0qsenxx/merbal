@@ -19,7 +19,7 @@ button {
 }
 
 .container {
-  width: 335px;
+  width: 375px;
   margin-left: auto;
   margin-right: auto;
   padding-right: 20px;
@@ -27,15 +27,15 @@ button {
   outline: 2px solid red;
 
   @media screen and (min-width: 768px) {
-    width: 736px;
-    padding-right: 48px;
-    padding-left: 48px;
+    width: 768px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1408px;
-    padding-right: 48px;
-    padding-left: 48px;
+    width: 1440px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 }
 

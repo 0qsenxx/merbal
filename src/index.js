@@ -1,4 +1,5 @@
 import './js/exercises/exercises';
-// import './js/footer';
-// import './js/favorites';
-console.log(window.screen.width)
+import './js/exercisesAPI'
+import './js/favorites';
+import './js/exerciseModal'
+import './js/footer';

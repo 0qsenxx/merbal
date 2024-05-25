@@ -1,9 +1,11 @@
 import getExercise from './exercisesAPI.js';
+import { favoritesRender } from './favorites.js';
 const body = document.querySelector('body');
-const openBtn = document.querySelectorAll('.show-more');
-openBtn.forEach(el => el.addEventListener('click', onOpenModal));
+// const openBtn = document.querySelectorAll('.body-parts-header-start-box');
+// console.log(openBtn)
+// openBtn.forEach(el => el.addEventListener('click', onOpenModal));
 
-async function onOpenModal(e) {
+export default async function onOpenModal(e) {
     let isFavorite = false;
     const exerciseId = e.currentTarget.dataset.id;
     const currentExercise = await getExercise(exerciseId);
@@ -61,6 +63,9 @@ async function onOpenModal(e) {
 function onClose() {
     const backdrop = document.querySelector('.backdrop');
     backdrop.remove();
+    if (document.location.href.includes("fovorites")) {
+        favoritesRender()
+    }
 }
 
 function renderExerciseModal(

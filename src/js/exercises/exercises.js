@@ -8,22 +8,23 @@ const exercisesPaginationRef = document.querySelector(
 );
 
 getMusclesExercises();
+if (exercisesListRef) {
+  exercisesBtnsListRef.addEventListener('click', evt => {
+    if (evt.target.nodeName === 'UL' || evt.target.nodeName === 'LI') {
+      return;
+    }
+    exercisesListRef.innerHTML = ``;
+    exercisesPaginationRef.innerHTML = ``;
 
-exercisesBtnsListRef.addEventListener('click', evt => {
-  if (evt.target.nodeName === 'UL' || evt.target.nodeName === 'LI') {
-    return;
-  }
-  exercisesListRef.innerHTML = ``;
-  exercisesPaginationRef.innerHTML = ``;
+    if (evt.target.hasAttribute('data-muscles')) {
+      getMusclesExercises();
+    }
 
-  if (evt.target.hasAttribute('data-muscles')) {
-    getMusclesExercises();
-  }
-
-  if (evt.target.hasAttribute('data-body-parts')) {
-    getBodyPartsExercises();
-  }
-});
+    if (evt.target.hasAttribute('data-body-parts')) {
+      getBodyPartsExercises();
+    }
+  });
+}
 
 // fetch(
 //   `https://energyflow.b.goit.study/api/filters?filter=Muscles&page=2`

@@ -11,20 +11,22 @@ function addUsers(newUsers) {
         },
     }).then(res =>
         res.json()
-    ).then(res => 
+    ).then(res =>
         console.log(res)
     ).catch(error =>
         console.log(error)
     );
 };
 
-formUsers.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const newUsers = {
-        email: e.currentTarget.elements.email.value,
-    };
-    console.log(newUsers);
-    addUsers(newUsers);
-    e.currentTarget.reset();
-    
-});
+if (formUsers) {
+    formUsers.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const newUsers = {
+            email: e.currentTarget.elements.email.value,
+        };
+        console.log(newUsers);
+        addUsers(newUsers);
+        e.currentTarget.reset();
+
+    })
+}

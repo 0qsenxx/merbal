@@ -3,7 +3,18 @@
 
 .hero .container {
   display: flex;
-  gap: 32px;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 32px;
+  }
 }
 
 .hero-img-box {
@@ -13,43 +24,95 @@
 
 .hero-tags__list {
   position: absolute;
-  bottom: 32px;
-  left: 48px;
+  bottom: 20px;
+  left: 10px;
   display: flex;
-  max-width: 200;
+  max-width: 141px;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px;
+
+  @media screen and (min-width: 768px) {
+    left: 20px;
+    bottom: 64px;
+    max-width: 196px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    bottom: 32px;
+    left: 48px;
+    display: flex;
+    max-width: 200px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }
 
 .hero-tags__item {
   border: 1px solid rgba(246, 246, 246, 0.3);
   border-radius: 30px;
-  padding: 4px 16px;
+  padding: 4px 10px;
+
+  @media screen and (min-width: 768px) {
+    padding: 4px 16px;
+  }
 }
 
 .hero-tag__text {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
-  text-align: left;
+  line-height: 14px;
   color: rgb(246, 246, 246);
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 .hero-text-box {
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  padding: 60px 20px 81px 20px;
   flex-shrink: 0;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    border-radius: 0px 50px 50px 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 215px 32px 192px 32px;
+    flex-shrink: 1;
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-shrink: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0;
+  }
 }
 
 .hero__title {
-  font-size: 120px;
+  font-size: 56px;
   font-weight: 400;
-  line-height: 115px;
+  line-height: 50px;
   letter-spacing: -2%;
   text-align: left;
   color: rgb(27, 27, 27);
-  max-width: 600px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 98px;
+    line-height: 95px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 120px;
+    line-height: 115px;
+    max-width: 600px;
+  }
 }
 
 .hero-title__span {
@@ -58,12 +121,20 @@
 }
 
 .hero__subtitle {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 18px;
   letter-spacing: -1%;
-  text-align: left;
   color: rgb(27, 27, 27);
-  max-width: 528px;
-  margin-top: 25px;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 25px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 528px;
+  }
 }

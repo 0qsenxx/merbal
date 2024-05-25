@@ -24,6 +24,7 @@ export default function getMusclesExercises() {
             rgba(16, 16, 16, 0.7) 0%,
             rgba(16, 16, 16, 0.7) 100%
           ), url(${exercise.imgUrl})`;
+          exerciseItem.style.backgroundSize = 'cover';
         }
       });
     });

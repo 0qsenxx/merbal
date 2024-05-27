@@ -5,6 +5,7 @@ export default function bodyPartsExercisesMarkup({
   time,
   bodyPart,
   target,
+  _id
 }) {
   if (name.length > 29 && window.screen.width >= 1440) {
     return `<li class="body-parts__item">
@@ -20,12 +21,12 @@ export default function bodyPartsExercisesMarkup({
         </p>
       </div>
       <div class="body-parts-header-start-box">
-        <p class="body-parts-start__text">
+        <p data-id=${_id} class="body-parts-start__text">
           Start
           <span class="body-parts-start__span">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M7.5 14L14 7.5M14 7.5L7.5 1M14 7.5H1" stroke="#1B1B1B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            </svg> 
         </span>
         </p>
       </div>
@@ -44,14 +45,12 @@ export default function bodyPartsExercisesMarkup({
         <span class="body-parts-about__span">${burnedCalories} / ${time} min</span>
       </p>
       <p class="body-parts-about__title">
-        Body part: <span class="body-parts-about__span">${
-          bodyPart[0].toUpperCase() + bodyPart.slice(1)
-        }</span>
+        Body part: <span class="body-parts-about__span">${bodyPart[0].toUpperCase() + bodyPart.slice(1)
+      }</span>
       </p>
       <p class="body-parts-about__title">
-        Target: <span class="body-parts-about__span">${
-          target[0].toUpperCase() + target.slice(1)
-        }</span>
+        Target: <span class="body-parts-about__span">${target[0].toUpperCase() + target.slice(1)
+      }</span>
       </p>
     </div>
   </li>`;
@@ -73,7 +72,7 @@ export default function bodyPartsExercisesMarkup({
         </p>
       </div>
       <div class="body-parts-header-start-box">
-        <p class="body-parts-start__text">
+        <p data-id=${_id} class="body-parts-start__text">
           Start
           <span class="body-parts-start__span">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -89,10 +88,9 @@ export default function bodyPartsExercisesMarkup({
           <use href="../images/symbol-defs.svg#icon-running"></use>
         </svg>
       </span>
-      ${
-        name.length > 14 && window.screen.width >= 768
-          ? (name[0].toUpperCase() + name.slice(1)).slice(0, 14) + '...'
-          : name[0].toUpperCase() + name.slice(1)
+      ${name.length > 14 && window.screen.width >= 768
+        ? (name[0].toUpperCase() + name.slice(1)).slice(0, 14) + '...'
+        : name[0].toUpperCase() + name.slice(1)
       }
     </h2>
     <div class="body-parts-about-box">
@@ -101,14 +99,12 @@ export default function bodyPartsExercisesMarkup({
         <span class="body-parts-about__span">${burnedCalories} / ${time} min</span>
       </p>
       <p class="body-parts-about__title">
-        Body part: <span class="body-parts-about__span">${
-          bodyPart[0].toUpperCase() + bodyPart.slice(1)
-        }</span>
+        Body part: <span class="body-parts-about__span">${bodyPart[0].toUpperCase() + bodyPart.slice(1)
+      }</span>
       </p>
       <p class="body-parts-about__title">
-        Target: <span class="body-parts-about__span">${
-          target[0].toUpperCase() + target.slice(1)
-        }</span>
+        Target: <span class="body-parts-about__span">${target[0].toUpperCase() + target.slice(1)
+      }</span>
       </p>
     </div>
   </li>`;
@@ -130,7 +126,7 @@ export default function bodyPartsExercisesMarkup({
           </p>
         </div>
         <div class="body-parts-header-start-box">
-          <p class="body-parts-start__text">
+          <p data-id=${_id} class="body-parts-start__text">
             Start
             <span class="body-parts-start__span">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -154,14 +150,12 @@ export default function bodyPartsExercisesMarkup({
           <span class="body-parts-about__span">${burnedCalories} / ${time} min</span>
         </p>
         <p class="body-parts-about__title">
-          Body part: <span class="body-parts-about__span">${
-            bodyPart[0].toUpperCase() + bodyPart.slice(1)
-          }</span>
+          Body part: <span class="body-parts-about__span">${bodyPart[0].toUpperCase() + bodyPart.slice(1)
+      }</span>
         </p>
         <p class="body-parts-about__title">
-          Target: <span class="body-parts-about__span">${
-            target[0].toUpperCase() + target.slice(1)
-          }</span>
+          Target: <span class="body-parts-about__span">${target[0].toUpperCase() + target.slice(1)
+      }</span>
         </p>
       </div>
     </li>`;
@@ -179,7 +173,7 @@ export default function bodyPartsExercisesMarkup({
           </p>
         </div>
         <div class="body-parts-header-start-box">
-          <p class="body-parts-start__text">
+          <p data-id=${_id} class="body-parts-start__text">
             Start
             <span class="body-parts-start__span">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -203,14 +197,12 @@ export default function bodyPartsExercisesMarkup({
           <span class="body-parts-about__span">${burnedCalories} / ${time} min</span>
         </p>
         <p class="body-parts-about__title">
-          Body part: <span class="body-parts-about__span">${
-            bodyPart[0].toUpperCase() + bodyPart.slice(1)
-          }</span>
+          Body part: <span class="body-parts-about__span">${bodyPart[0].toUpperCase() + bodyPart.slice(1)
+      }</span>
         </p>
         <p class="body-parts-about__title">
-          Target: <span class="body-parts-about__span">${
-            target[0].toUpperCase() + target.slice(1)
-          }</span>
+          Target: <span class="body-parts-about__span">${target[0].toUpperCase() + target.slice(1)
+      }</span>
         </p>
       </div>
     </li>`;

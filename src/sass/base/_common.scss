@@ -25,16 +25,15 @@ button {
   padding-right: 16px;
   padding-left: 16px;
   outline: 2px solid red;
-
+  
   @media screen and (min-width: 768px) {
-    width: 768px;
+  width: 768px;
   }
-
+  
   @media screen and (min-width: 1440px) {
-    width: 1440px;
-
+  width: 1440px;
   }
-}
+  }
 
 .backdrop {
   width: 100%;

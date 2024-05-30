@@ -1,5 +1,6 @@
 import getExercisesByUrl from './getExercisesByUrl';
 import bodyPartsExercisesMarkup from './exercises-marup/bodyPartsExercisesMarkup';
+import onOpenModal from '../exerciseModal';
 
 const exercisesListRef = document.querySelector('.exercises__list');
 const exercisesPaginationRef = document.querySelector(
@@ -8,7 +9,6 @@ const exercisesPaginationRef = document.querySelector(
 
 export default function getBodyPartsExercises() {
   let activeButton = null;
-
   const loadExercises = url => {
     getExercisesByUrl(url).then(data => {
       exercisesListRef.innerHTML = '';
@@ -18,6 +18,7 @@ export default function getBodyPartsExercises() {
           bodyPartsExercisesMarkup(exercise)
         );
       });
+      document.querySelectorAll('.body-parts-start__text').forEach(el => el.addEventListener('click', onOpenModal))
     });
   };
 

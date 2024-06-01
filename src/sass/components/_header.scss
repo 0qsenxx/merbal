@@ -85,12 +85,14 @@
   @media screen and (min-width: 1440px) {}
 }
 
+.header-nav__item:first-child {
+  margin-left: 28px;
+  
+}
+
 .header-nav__item:last-child {
   margin-right: 16px;
 
-  @media screen and (min-width: 768px) {}
-
-  @media screen and (min-width: 1440px) {}
 }
 
 .is-active {
@@ -106,8 +108,6 @@
     padding-bottom: 6px;
     padding-right: 26px;
   }
-
-  @media screen and (min-width: 1440px) {}
 }
 
 .is-active .header-nav__link {
@@ -118,8 +118,6 @@
 .header-nav__link {
   color: rgb(246, 246, 246);
 
-
-  @media screen and (min-width: 768px) {}
 
   @media screen and (min-width: 1440px) {
     font-size: 16px;
@@ -171,68 +169,3 @@
   }
 }
 
-
-.btn-open-modal {
-  display: block;
-  margin-left: 157px;
-
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-
-}
-
-.header-modal {
-  position: fixed;
-  display: none;
-  top: -15px;
-  left: 50%;
-  transform: translate(-50%, -5px);
-
-  width: 335px;
-  border-radius: 30px;
-  background: #7E847F;
-  z-index: 1;
-}
-
-
-.modal-nav__list {
-  align-items: center;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 16px;
-  margin-top: 260px;
-  margin-bottom: 315px;
-}
-
-.modal-contacts__list {
-  gap: 12px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 40px;
-  margin-left: 94px;
-  margin-right: 94px;
-}
-
-.modal__logo {
-
-  font-weight: 700;
-  font-size: 16px;
-  color: #F6F6F6;
-  margin-left: 20px;
-}
-
-.box {
-  margin-top: 20px;
-  display: flex;
-
-}
-
-.btn-close-modal {
-  fill: #F6F6F6;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  margin-left: 160px;
-}

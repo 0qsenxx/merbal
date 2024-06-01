@@ -175,6 +175,7 @@ function renderExerciseModal(
 </svg></button>
 <div class="modal-img-wrap">
     <img class="modal-img" src="${gifUrl}" alt="exercise">
+    <div class="modal-img-overlay"></div>
 </div>
 <div class="modal-content-wrap">
 <div >

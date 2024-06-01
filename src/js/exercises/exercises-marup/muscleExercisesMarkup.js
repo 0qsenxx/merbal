@@ -1,5 +1,5 @@
 export default function muscleExercisesMarkup({ name, filter }) {
-  return `<li class="exercises__item">
+  return `<li class="exercises__item" data-name="${name}">
     <div class="exercises__wrap">
         <h3 class="exercises-card__title">${
           name[0].toUpperCase() + name.slice(1)

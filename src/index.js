@@ -2,5 +2,5 @@
 // import './js/exercisesAPI'
 // import './js/favorites';
 // import './js/exerciseModal'
-// import './js/footer';
-import './js/hedaer';
+import './js/footer';
+// import './js/hedaer';

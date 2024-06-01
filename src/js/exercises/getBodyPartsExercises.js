@@ -18,7 +18,9 @@ export default function getBodyPartsExercises() {
           bodyPartsExercisesMarkup(exercise)
         );
       });
-      document.querySelectorAll('.body-parts-start__text').forEach(el => el.addEventListener('click', onOpenModal))
+      document
+        .querySelectorAll('.body-parts-start__text')
+        .forEach(el => el.addEventListener('click', onOpenModal));
     });
   };
 

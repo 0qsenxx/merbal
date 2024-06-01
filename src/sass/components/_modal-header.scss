@@ -1,0 +1,106 @@
+.modal-nav__link {
+    color: rgb(246, 246, 246);
+}
+
+.modal-nav__item {
+    align-content: center;
+    margin-top: 16px;
+}
+
+.modal-contacts__item {
+    padding: 8px;
+    border: 1px solid rgba(246, 246, 246, 0.20);
+    border-radius: 10px;
+}
+
+.modal-contacts__link {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    fill: #F6F6F6;
+}
+
+
+
+
+.is-active .modal-nav__link {
+    color: rgb(27, 27, 27);
+  
+  }
+
+
+
+
+.btn-open-modal {
+    background: transparent;
+    display: block;
+    margin-left: 157px;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+}
+
+.btn-close-modal {
+    background: transparent;
+}
+
+.header-modal {
+    position: fixed;
+    display: none;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%, -5px);
+
+    width: 335px;
+    border-radius: 30px;
+    background: #7E847F;
+    z-index: 1;
+}
+
+
+
+
+.modal-nav__list {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 240px;
+    margin-bottom: 315px;
+}
+
+.modal-contacts__list {
+
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-left: 94px;
+    margin-right: 94px;
+}
+
+.modal__logo {
+
+    font-weight: 700;
+    font-size: 16px;
+    color: #F6F6F6;
+    margin-left: 20px;
+}
+
+.box {
+    margin-top: 20px;
+    display: flex;
+
+}
+
+.btn-close-modal {
+    fill: #F6F6F6;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-left: 160px;
+}

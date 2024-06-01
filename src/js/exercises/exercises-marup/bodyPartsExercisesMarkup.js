@@ -7,7 +7,7 @@ export default function bodyPartsExercisesMarkup({
   target,
   _id
 }) {
-  if (name.length > 29 && window.screen.width >= 1440) {
+  if (name.length > 24 && window.screen.width >= 1440) {
     return `<li class="body-parts__item">
     <div class="body-parts-header-box">
       <div class="body-parts-header-train-box">
@@ -37,7 +37,7 @@ export default function bodyPartsExercisesMarkup({
           <use href="../images/symbol-defs.svg#icon-running"></use>
         </svg>
       </span>
-      ${(name[0].toUpperCase() + name.slice(1)).slice(0, 29) + '...'}
+      ${(name[0].toUpperCase() + name.slice(1)).slice(0, 24) + '...'}
     </h2>
     <div class="body-parts-about-box">
       <p class="body-parts-about__title body-parts-about__title1">

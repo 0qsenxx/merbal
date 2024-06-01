@@ -18,7 +18,6 @@ function addUsers(newUsers) {
     );
 };
 
-if (formUsers) {
     formUsers.addEventListener("submit", (e) => {
         e.preventDefault();
         const newUsers = {
@@ -29,4 +28,3 @@ if (formUsers) {
         e.currentTarget.reset();
 
     })
-}

@@ -34,6 +34,15 @@
     border-radius: 12px;
     height: 258px;
     width: 295px;
+    position: relative;
+}
+
+.modal-img-overlay {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(27, 27, 27, 0.20);
+    border-radius: 12px;
 }
 
 .modal-img {
@@ -197,6 +206,7 @@
         flex-shrink: 0;
         border-radius: 12px;
         height: 259px;
+        width: 270px;
     }
 
     .modal-img {

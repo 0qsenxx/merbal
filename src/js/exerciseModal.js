@@ -92,6 +92,7 @@ function renderExerciseModal(
 </svg></button>
 <div class="modal-img-wrap">
     <img class="modal-img" src="${gifUrl}" alt="exercise">
+    <div class="modal-img-overlay"></div>
 </div>
 <div class="modal-content-wrap">
 <div >
@@ -141,7 +142,7 @@ function renderExerciseModal(
     </div >
     <div class="modal-btn-wrap">
     <div class="favorite-wrap"></div>
-<button type="button" class="modal-add-rating-btn modal-btn">Give a rating</button>
+<button data-id="${_id}" type="button" class="modal-add-rating-btn modal-btn">Give a rating</button>
     </div >
 </div >
 </div >

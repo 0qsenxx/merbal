@@ -4,7 +4,7 @@ export default async function getExercise(id) {
             `https://energyflow.b.goit.study/api/exercises/${id}`
         );
         const data = await res.json();
-        console.log(data)
+        // console.log(data)
         return data;
     } catch (err) {
         console.log('err', err);

@@ -7,40 +7,41 @@
     </button>
     <h2 class="rating-modal__title">Rating</h2>
     <div class="rating-modal-box">
-      <p class="rating-modal-text">0.0</p>
+      <p class="rating-modal__text">0.0</p>
       <ul class="rating-modal-stars__list">
-        <li class="rating-modal-start__item">
-          <svg width="24" height="24" class="rating-modal-star__svg">
-            <use href="./images/symbol-defs.svg#icon-Star-1"></use>
+        <li class="rating-modal-start__item rating-star-color-1" data-1="ratingModalStars">
+          <svg width="24" height="24" class="rating-modal-star__svg rating-star-color-1">
+            <use href="./images/symbol-defs.svg#icon-Star-1" class="rating-star-color-1"></use>
           </svg>
         </li>
-        <li class="rating-modal-start__item">
-          <svg width="24" height="24" class="rating-modal-star__svg">
-            <use href="./images/symbol-defs.svg#icon-Star-1"></use>
+        <li class="rating-modal-start__item rating-star-color-2" data-2="ratingModalStars">
+          <svg width="24" height="24" class="rating-modal-star__svg rating-star-color-2">
+            <use href="./images/symbol-defs.svg#icon-Star-1" class="rating-star-color-2"></use>
           </svg>
         </li>
-        <li class="rating-modal-start__item">
-          <svg width="24" height="24" class="rating-modal-star__svg">
-            <use href="./images/symbol-defs.svg#icon-Star-1"></use>
+        <li class="rating-modal-start__item rating-star-color-3" data-3="ratingModalStars">
+          <svg width="24" height="24" class="rating-modal-star__svg rating-star-color-3">
+            <use href="./images/symbol-defs.svg#icon-Star-1" class="rating-star-color-3"></use>
           </svg>
         </li>
-        <li class="rating-modal-start__item">
-          <svg width="24" height="24" class="rating-modal-star__svg">
-            <use href="./images/symbol-defs.svg#icon-Star-1"></use>
+        <li class="rating-modal-start__item rating-star-color-4" data-4="ratingModalStars">
+          <svg width="24" height="24" class="rating-modal-star__svg rating-star-color-4">
+            <use href="./images/symbol-defs.svg#icon-Star-1" class="rating-star-color-4"></use>
           </svg>
         </li>
-        <li class="rating-modal-start__item">
-          <svg width="24" height="24" class="rating-modal-star__svg">
-            <use href="./images/symbol-defs.svg#icon-Star-1"></use>
+        <li class="rating-modal-start__item rating-star-color-5" data-5="ratingModalStars">
+          <svg width="24" height="24" class="rating-modal-star__svg rating-star-color-5">
+            <use href="./images/symbol-defs.svg#icon-Star-1" class="rating-star-color-5"></use>
           </svg>
         </li>
       </ul>
     </div>
     <form class="rating-modal__form">
-      <input type="email" class="rating-modal__input" placeholder="Email" />
+      <input type="text" class="rating-modal__input" placeholder="Email" name="ratingEmail"/>
       <textarea
         class="rating-modal__textarea"
         placeholder="Your comment"
+        name="ratingReview"
       ></textarea>
       <button type="submit" class="rating-modal-send__btn">Send</button>
     </form>

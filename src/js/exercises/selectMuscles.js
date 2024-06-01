@@ -68,8 +68,9 @@ export default function selectMuscles() {
         activeButton = event.target;
         activeButton.classList.add('exercises-active-page');
         const page = event.target.textContent;
+        // console.log(page);
         loadExercises(
-          `https://energyflow.b.goit.study/api/exercises?muscles=${selectedMuscle.textContent.toLowerCase()}&page${page}1&limit=9`
+          `https://energyflow.b.goit.study/api/exercises?muscles=${selectedMuscle.textContent.toLowerCase()}&page=${page}&limit=9`
         );
       });
     });

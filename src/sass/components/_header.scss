@@ -118,9 +118,6 @@
 .header-nav__link {
   color: rgb(246, 246, 246);
 
-
-  @media screen and (min-width: 768px) {}
-
   @media screen and (min-width: 1440px) {
     font-size: 16px;
     font-weight: 400;
@@ -197,8 +194,10 @@
 
 
 .modal-nav__list {
+  flex-direction: column;
+  display: flex;
   align-items: center;
-  width: 100px;
+  max-width: 100px;
   margin-left: auto;
   margin-right: auto;
   gap: 16px;

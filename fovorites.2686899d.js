@@ -1,2 +1,0 @@
-document.querySelector(".footer__form").addEventListener("submit",e=>{e.preventDefault();let t={email:e.currentTarget.elements.email.value};console.log(t),fetch("https://energyflow.b.goit.study/api/subscription",{method:"POST",body:JSON.stringify(t),headers:{"Content-Type":"application/json; charset=UTF-8"}}).then(e=>e.json()).then(e=>console.log(e)).catch(e=>console.log(e)),e.currentTarget.reset()});
-//# sourceMappingURL=fovorites.2686899d.js.map

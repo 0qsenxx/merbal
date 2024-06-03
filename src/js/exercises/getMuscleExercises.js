@@ -1,5 +1,6 @@
 import getExercisesByUrl from './getExercisesByUrl';
 import muscleExercisesMarkup from './exercises-marup/muscleExercisesMarkup';
+import { showLoader, hideLoader } from './exercises-loader';
 
 const exercisesListRef = document.querySelector('.exercises__list');
 const exercisesPaginationRef = document.querySelector(
@@ -10,7 +11,9 @@ export default function getMusclesExercises() {
   let activeButton = null;
 
   const loadExercises = url => {
+    showLoader();
     getExercisesByUrl(url).then(data => {
+      hideLoader();
       if (exercisesListRef) {
         exercisesListRef.innerHTML = '';
         data.results.forEach(exercise => {

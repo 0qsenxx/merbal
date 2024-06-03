@@ -1,13 +1,12 @@
 .header {
   position: absolute;
   z-index: 1;
-  top: 10px;
+  top: 30px;
   left: 50%;
-  transform: translate(-50%, 10px);
+  transform: translate(-50%, -10px);
 
 
   @media screen and (min-width: 768px) {
-
     top: 16px;
     transform: translate(-50%, 16px);
   }
@@ -25,7 +24,7 @@
 
 
 .header__nav {
-  align-items: center;
+  align-content: center;
 
   display: flex;
 

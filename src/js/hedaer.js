@@ -2,7 +2,7 @@ const openBtn = document.querySelector(".btn-open-modal");
 const closeBtn = document.querySelector(".btn-close-modal");
 const modal = document.querySelector(".header-modal");
 
-
+console.log(window.location.pathname);
 
 const modalHome = document.querySelector("[data-modalHome]");
 const modalFavorites = document.querySelector("[data-modalFavorites]");

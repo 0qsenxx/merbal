@@ -1,68 +1,15 @@
-!function(){async function e(e){try{let t=await fetch(`https://energyflow.b.goit.study/api/exercises/${e}`);return await t.json()}catch(e){console.log("err",e)}}let t=document.querySelector("body"),A=document.querySelectorAll(".body-parts-header-start-box");async function v(A){let v=!1,s=A.currentTarget.dataset.id,r=await e(s);function n(e){let t=document.querySelector(".favorite-wrap");e?(t.innerHTML=`<button type="button" class="modal-remove-favorite-btn modal-btn">Remove from 
-          <svg class="modal-btn-heart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.3671 3.84166C16.9415 3.41583 16.4361 3.07803 15.8799 2.84757C15.3237 2.6171 14.7275 2.49847 14.1254 2.49847C13.5234 2.49847 12.9272 2.6171 12.371 2.84757C11.8147 3.07803 11.3094 3.41583 10.8838 3.84166L10.0004 4.725L9.11709 3.84166C8.25735 2.98192 7.09128 2.49892 5.87542 2.49892C4.65956 2.49892 3.4935 2.98192 2.63376 3.84166C1.77401 4.70141 1.29102 5.86747 1.29102 7.08333C1.29102 8.29919 1.77401 9.46525 2.63376 10.325L3.51709 11.2083L10.0004 17.6917L16.4838 11.2083L17.3671 10.325C17.7929 9.89937 18.1307 9.39401 18.3612 8.83779C18.5917 8.28158 18.7103 7.6854 18.7103 7.08333C18.7103 6.48126 18.5917 5.88508 18.3612 5.32887C18.1307 4.77265 17.7929 4.26729 17.3671 3.84166Z" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></button>`,document.querySelector(".modal-remove-favorite-btn").addEventListener("click",b)):(t.innerHTML=`<button type="button" class="modal-add-favorite-btn modal-btn">Add to favorite<svg class="modal-btn-heart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.3671 3.84166C16.9415 3.41583 16.4361 3.07803 15.8799 2.84757C15.3237 2.6171 14.7275 2.49847 14.1254 2.49847C13.5234 2.49847 12.9272 2.6171 12.371 2.84757C11.8147 3.07803 11.3094 3.41583 10.8838 3.84166L10.0004 4.725L9.11709 3.84166C8.25735 2.98192 7.09128 2.49892 5.87542 2.49892C4.65956 2.49892 3.4935 2.98192 2.63376 3.84166C1.77401 4.70141 1.29102 5.86747 1.29102 7.08333C1.29102 8.29919 1.77401 9.46525 2.63376 10.325L3.51709 11.2083L10.0004 17.6917L16.4838 11.2083L17.3671 10.325C17.7929 9.89937 18.1307 9.39401 18.3612 8.83779C18.5917 8.28158 18.7103 7.6854 18.7103 7.08333C18.7103 6.48126 18.5917 5.88508 18.3612 5.32887C18.1307 4.77265 17.7929 4.26729 17.3671 3.84166Z" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg></button>`,document.querySelector(".modal-add-favorite-btn").addEventListener("click",a))}function a(){let e=JSON.parse(localStorage.getItem("favorites"));v=!0,e.push(r),localStorage.setItem("favorites",JSON.stringify(e)),n(v)}function b(){let e=JSON.parse(localStorage.getItem("favorites"));v=!1;let t=e.filter(e=>e._id!==r._id);localStorage.setItem("favorites",JSON.stringify(t)),n(v)}localStorage.getItem("favorites")&&JSON.parse(localStorage.getItem("favorites")).map(e=>e._id).includes(r._id)&&(v=!0),function({name:e,equipment:A,burnedCalories:v,bodyPart:d,popularity:s,_id:r,time:n,target:a,rating:b,gifUrl:f},u){let c=`
-    <div class="backdrop">
-<div class="modal">
-<div class="modal-content">
-<button class="close-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.8332 1.16666L1.1665 12.8333M1.1665 1.16666L12.8332 12.8333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></button>
-<div class="modal-img-wrap">
-    <img class="modal-img" src="${f}" alt="exercise">
-    <div class="modal-img-overlay"></div>
-</div>
-<div class="modal-content-wrap">
-<div >
-    <h2 class="modal-title">${e}</h2>
-    <div class="modal-rating">
-        <p class="modal-rating-amount">${Math.round(b)}.0</p>
-        <ul class="modal-rating-list">
-            ${[1,2,3,4,5].map((e,t)=>t<Math.round(b)?`<li class="modal-rating-item"><svg class="modal-rating-stars gold-star"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#EEA10C"/>
-                  </svg></li>`:`<li class="modal-rating-item"><svg class="modal-rating-stars grey-star"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#1B1B1B20"/>
-                    </svg></li>`).join("")}
-        </ul>
+!function(){let e=document.querySelector(".btn-open-modal"),t=document.querySelector(".btn-close-modal"),s=document.querySelector(".header-modal");console.log(window.location.pathname);let r=document.querySelector("[data-modalHome]"),A=document.querySelector("[data-modalFavorites]"),d=document.querySelector("[data-headerHome]"),v=document.querySelector("[data-headerFavorites]");async function n(e){try{let t=await fetch(e);return await t.json()}catch(e){console.log("err",e)}}"/fovorites.html"!==window.location.pathname?(r.classList.add("is-active"),d.classList.add("is-active"),A.classList.remove("is-active"),v.classList.remove("is-active")):(A.classList.add("is-active"),v.classList.add("is-active"),r.classList.remove("is-active"),d.classList.remove("is-active")),e.addEventListener("click",()=>{s.style.display="block"}),t.addEventListener("click",()=>{s.style.display="none"});let a=document.querySelector(".mask");function b(){a.classList.remove("is-show-loader")}function c(){a.classList.add("is-show-loader")}let f=document.querySelector(".exercises__list"),u=document.querySelector(".exercises-cards__pagination");function l(){let e=null,t=e=>{b(),n(e).then(e=>{c(),f&&(f.innerHTML="",e.results.forEach(e=>{f.insertAdjacentHTML("afterbegin",function({name:e,filter:t}){return`<li class="exercises__item" data-name="${e}">
+    <div class="exercises__wrap">
+        <h3 class="exercises-card__title">${e[0].toUpperCase()+e.slice(1)}</h3>
+        <p class="exercises-card__category">${t}</p>
     </div>
-    <ul class="modal-details-list">
-        <li class="modal-details-item">
-            <p class="modal-details-item-title">Target</p>
-            <p class="modal-details-item-text">${a}</p>
-        </li>
-        <li class="modal-details-item">
-            <p class="modal-details-item-title">Body Part</p>
-            <p class="modal-details-item-text">${d}</p>
-        </li>
-        <li class="modal-details-item">
-            <p class="modal-details-item-title">Equipment</p>
-            <p class="modal-details-item-text">${A}</p>
-        </li>
-        <li class="modal-details-item">
-            <p class="modal-details-item-title">Popular</p>
-            <p class="modal-details-item-text">${s}</p>
-        </li>
-        <li class="modal-details-item">
-            <p class="modal-details-item-title">Burned calories</p>
-            <p class="modal-details-item-text">${v}/${n} min</p>
-        </li>
-    </ul>
-    <p class="modal-info">This refers to your core muscles, which include the rectus abdominis, obliques, and
-        transverse abdominis.
-        They're essential for maintaining posture, stability, and generating force in many movements. Exercises
-        that target the abs include crunches, leg raises, and planks.</p>
-    </div >
-    <div class="modal-btn-wrap">
-    <div class="favorite-wrap"></div>
-<button type="button" class="modal-add-rating-btn modal-btn" data-id="${r}">Give a rating</button>
-    </div >
-</div >
-</div >
-</div >
-</div >
-    `;t.insertAdjacentHTML("afterbegin",c)}(r,0),document.querySelector(".close-btn").addEventListener("click",d),n(v),document.querySelector(".modal-add-rating-btn");let f=document.querySelector(".backdrop-rating"),u=document.querySelector(".modal-add-rating-btn");document.querySelector(".rating-modal-send__btn");let c=document.querySelector(".rating-modal-close__btn"),w=document.querySelector(".rating-modal__form"),l=document.querySelector(".rating-modal__text"),z=document.querySelector(".rating-modal-star__svg");u.addEventListener("click",e=>{f.classList.remove("is-hidden-rating"),d()}),c.addEventListener("click",e=>{f.classList.add("is-hidden-rating")}),w.addEventListener("submit",e=>{if(e.preventDefault(),!1===e.target.elements.ratingEmail.value.includes("@")||!1===e.target.elements.ratingEmail.value.includes(".")){e.target.elements.ratingEmail.classList.add("rating-error-input");return}if(e.target.elements.ratingEmail.classList.remove("rating-error-input"),e.target.elements.ratingReview.value.length<=3){e.target.elements.ratingReview.classList.add("rating-error-input");return}if(e.target.elements.ratingReview.classList.remove("rating-error-input"),!1===l.hasAttribute("data-rating")){z.style.border="1px solid red";return}z.style.border="none",(async function(){try{let t=await fetch(`https://energyflow.b.goit.study/api/exercises/${u.getAttribute("data-id")}/rating`,{method:"PATCH",body:JSON.stringify({rate:Number(l.getAttribute("data-rating")),email:e.target.elements.ratingEmail.value,review:e.target.elements.ratingReview.value}),headers:{"Content-Type":"application/json; charset=UTF-8"}});return await t.json()}catch(e){console.log(e)}})().then(e=>{console.log(e),f.classList.add("is-hidden-rating")})})}function d(){document.querySelector(".backdrop").remove(),document.location.href.includes("fovorites")&&r()}console.log(A),A.forEach(e=>e.addEventListener("click",v));let s=document.querySelector(".favorites-exercises__list");function r(){if(localStorage.getItem("favorites")){let e=JSON.parse(localStorage.getItem("favorites"));e.length?function(e){let t=e.map(e=>(function({rating:e,name:t,burnedCalories:A,time:v,bodyPart:d,target:s,_id:r}){return t.length>24&&window.screen.width>=1440?`<li class="body-parts__item">
+   </li>`}(e));let t=document.querySelector(".exercises__item");t&&(t.style.backgroundImage=`linear-gradient(
+              0deg,
+              rgba(16, 16, 16, 0.7) 0%,
+              rgba(16, 16, 16, 0.7) 100%
+            ), url(${e.imgUrl})`,t.style.backgroundSize="cover")}))})},s=t=>{if(u){u.innerHTML="";for(let e=0;e<t;e++)u.insertAdjacentHTML("beforeend",`<li class="exercises-pagination__item">
+            <button class="exercises-cards__page">${e+1}</button>
+          </li>`);(e=u.querySelector("button"))&&e.classList.add("exercises-active-page")}};n("https://energyflow.b.goit.study/api/filters?filter=Muscles&page=1&limit=12").then(r=>{s(r.totalPages),t("https://energyflow.b.goit.study/api/filters?filter=Muscles&page=1&limit=12"),u&&u.addEventListener("click",s=>{if("BUTTON"!==s.target.nodeName)return;e&&e.classList.remove("exercises-active-page"),(e=s.target).classList.add("exercises-active-page");let r=s.target.textContent;t(`https://energyflow.b.goit.study/api/filters?filter=Muscles&page=${r}&limit=12`)})})}function w({rating:e,name:t,burnedCalories:s,time:r,bodyPart:A,target:d,_id:v}){return t.length>24&&window.screen.width>=1440?`<li class="body-parts__item">
     <div class="body-parts-header-box">
       <div class="body-parts-header-train-box">
         <p class="body-parts-workout__text">WORKOUT</p>
@@ -75,7 +22,7 @@
         </p>
       </div>
       <div class="body-parts-header-start-box">
-        <p data-id=${r} class="body-parts-start__text">
+        <p data-id=${v} class="body-parts-start__text">
           Start
           <span class="body-parts-start__span">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -96,13 +43,13 @@
     <div class="body-parts-about-box">
       <p class="body-parts-about__title body-parts-about__title1">
         Burned calories:
-        <span class="body-parts-about__span">${A} / ${v} min</span>
+        <span class="body-parts-about__span">${s} / ${r} min</span>
       </p>
       <p class="body-parts-about__title">
-        Body part: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
+        Body part: <span class="body-parts-about__span">${A[0].toUpperCase()+A.slice(1)}</span>
       </p>
       <p class="body-parts-about__title">
-        Target: <span class="body-parts-about__span">${s[0].toUpperCase()+s.slice(1)}</span>
+        Target: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
       </p>
     </div>
   </li>`:t.length>14&&window.screen.width>=768&&window.screen.width<1440?`<li class="body-parts__item">
@@ -118,7 +65,7 @@
         </p>
       </div>
       <div class="body-parts-header-start-box">
-        <p data-id=${r} class="body-parts-start__text">
+        <p data-id=${v} class="body-parts-start__text">
           Start
           <span class="body-parts-start__span">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -139,13 +86,13 @@
     <div class="body-parts-about-box">
       <p class="body-parts-about__title body-parts-about__title1">
         Burned calories:
-        <span class="body-parts-about__span">${A} / ${v} min</span>
+        <span class="body-parts-about__span">${s} / ${r} min</span>
       </p>
       <p class="body-parts-about__title">
-        Body part: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
+        Body part: <span class="body-parts-about__span">${A[0].toUpperCase()+A.slice(1)}</span>
       </p>
       <p class="body-parts-about__title">
-        Target: <span class="body-parts-about__span">${s[0].toUpperCase()+s.slice(1)}</span>
+        Target: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
       </p>
     </div>
   </li>`:t.length>20&&window.screen.width>=375&&window.screen.width<768?`<li class="body-parts__item">
@@ -161,7 +108,7 @@
           </p>
         </div>
         <div class="body-parts-header-start-box">
-          <p data-id=${r} class="body-parts-start__text">
+          <p data-id=${v} class="body-parts-start__text">
             Start
             <span class="body-parts-start__span">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -182,13 +129,13 @@
       <div class="body-parts-about-box">
         <p class="body-parts-about__title body-parts-about__title1">
           Burned calories:
-          <span class="body-parts-about__span">${A} / ${v} min</span>
+          <span class="body-parts-about__span">${s} / ${r} min</span>
         </p>
         <p class="body-parts-about__title">
-          Body part: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
+          Body part: <span class="body-parts-about__span">${A[0].toUpperCase()+A.slice(1)}</span>
         </p>
         <p class="body-parts-about__title">
-          Target: <span class="body-parts-about__span">${s[0].toUpperCase()+s.slice(1)}</span>
+          Target: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
         </p>
       </div>
     </li>`:`<li class="body-parts__item">
@@ -204,7 +151,7 @@
           </p>
         </div>
         <div class="body-parts-header-start-box">
-          <p data-id=${r} class="body-parts-start__text">
+          <p data-id=${v} class="body-parts-start__text">
             Start
             <span class="body-parts-start__span">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -225,16 +172,16 @@
       <div class="body-parts-about-box">
         <p class="body-parts-about__title body-parts-about__title1">
           Burned calories:
-          <span class="body-parts-about__span">${A} / ${v} min</span>
+          <span class="body-parts-about__span">${s} / ${r} min</span>
         </p>
         <p class="body-parts-about__title">
-          Body part: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
+          Body part: <span class="body-parts-about__span">${A[0].toUpperCase()+A.slice(1)}</span>
         </p>
         <p class="body-parts-about__title">
-          Target: <span class="body-parts-about__span">${s[0].toUpperCase()+s.slice(1)}</span>
+          Target: <span class="body-parts-about__span">${d[0].toUpperCase()+d.slice(1)}</span>
         </p>
       </div>
-    </li>`})(e));s&&(s.innerHTML=t.join("")),document.querySelectorAll(".body-parts-start__text").forEach(e=>e.addEventListener("click",v))}(e):s&&(s.innerHTML=`<div class="favorites-info">
+    </li>`}async function g(e){try{let t=await fetch(`https://energyflow.b.goit.study/api/exercises/${e}`);return await t.json()}catch(e){console.log("err",e)}}let z=document.querySelector(".favorites-exercises__list");function P(){if(localStorage.getItem("favorites")){let e=JSON.parse(localStorage.getItem("favorites"));e.length?function(e){let t=e.map(e=>w(e));z&&(z.innerHTML=t.join("")),document.querySelectorAll(".body-parts-start__text").forEach(e=>e.addEventListener("click",o))}(e):z&&(z.innerHTML=`<div class="favorites-info">
                 <svg class="favorites-info-img" width="116" height="71" viewBox="0 0 116 71" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect x="0.5" width="115" height="71" fill="url(#pattern0_3520_8245)"/>
                 <defs>
@@ -245,8 +192,83 @@
                 </defs>
                 </svg>
                 <p class="favorites-info-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future\u{1F60A}</p>
-            </div>`)}else s&&(s.innerHTML=`<div class="favorites-info">
+            </div>`)}else z&&(z.innerHTML=`<div class="favorites-info">
             <img class="favorites-info-img" src="./images/favorites/dumbbell.png" alt="dumbbell">
             <p class="favorites-info-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future\u{1F60A}</p>
-        </div>`)}r();let n=document.querySelector(".btn-open-modal"),a=document.querySelector(".btn-close-modal"),b=document.querySelector(".header-modal");console.log(window.location.pathname);let f=document.querySelector("[data-modalHome]"),u=document.querySelector("[data-modalFavorites]"),c=document.querySelector("[data-headerHome]"),w=document.querySelector("[data-headerFavorites]");"/fovorites.html"!==window.location.pathname?(f.classList.add("is-active"),c.classList.add("is-active"),u.classList.remove("is-active"),w.classList.remove("is-active")):(u.classList.add("is-active"),w.classList.add("is-active"),f.classList.remove("is-active"),c.classList.remove("is-active")),n.addEventListener("click",()=>{b.style.display="block"}),a.addEventListener("click",()=>{b.style.display="none"})}();
-//# sourceMappingURL=fovorites.906963fd.js.map
+        </div>`)}P();let p=document.querySelector("body"),B=document.querySelectorAll(".body-parts-header-start-box");async function o(e){let t=!1,s=e.currentTarget.dataset.id,r=await g(s);function A(e){let t=document.querySelector(".favorite-wrap");e?(t.innerHTML=`<button type="button" class="modal-remove-favorite-btn modal-btn">Remove from 
+          <svg class="modal-btn-heart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.3671 3.84166C16.9415 3.41583 16.4361 3.07803 15.8799 2.84757C15.3237 2.6171 14.7275 2.49847 14.1254 2.49847C13.5234 2.49847 12.9272 2.6171 12.371 2.84757C11.8147 3.07803 11.3094 3.41583 10.8838 3.84166L10.0004 4.725L9.11709 3.84166C8.25735 2.98192 7.09128 2.49892 5.87542 2.49892C4.65956 2.49892 3.4935 2.98192 2.63376 3.84166C1.77401 4.70141 1.29102 5.86747 1.29102 7.08333C1.29102 8.29919 1.77401 9.46525 2.63376 10.325L3.51709 11.2083L10.0004 17.6917L16.4838 11.2083L17.3671 10.325C17.7929 9.89937 18.1307 9.39401 18.3612 8.83779C18.5917 8.28158 18.7103 7.6854 18.7103 7.08333C18.7103 6.48126 18.5917 5.88508 18.3612 5.32887C18.1307 4.77265 17.7929 4.26729 17.3671 3.84166Z" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></button>`,document.querySelector(".modal-remove-favorite-btn").addEventListener("click",v)):(t.innerHTML=`<button type="button" class="modal-add-favorite-btn modal-btn">Add to favorite<svg class="modal-btn-heart" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.3671 3.84166C16.9415 3.41583 16.4361 3.07803 15.8799 2.84757C15.3237 2.6171 14.7275 2.49847 14.1254 2.49847C13.5234 2.49847 12.9272 2.6171 12.371 2.84757C11.8147 3.07803 11.3094 3.41583 10.8838 3.84166L10.0004 4.725L9.11709 3.84166C8.25735 2.98192 7.09128 2.49892 5.87542 2.49892C4.65956 2.49892 3.4935 2.98192 2.63376 3.84166C1.77401 4.70141 1.29102 5.86747 1.29102 7.08333C1.29102 8.29919 1.77401 9.46525 2.63376 10.325L3.51709 11.2083L10.0004 17.6917L16.4838 11.2083L17.3671 10.325C17.7929 9.89937 18.1307 9.39401 18.3612 8.83779C18.5917 8.28158 18.7103 7.6854 18.7103 7.08333C18.7103 6.48126 18.5917 5.88508 18.3612 5.32887C18.1307 4.77265 17.7929 4.26729 17.3671 3.84166Z" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg></button>`,document.querySelector(".modal-add-favorite-btn").addEventListener("click",d))}function d(){let e=JSON.parse(localStorage.getItem("favorites"));t=!0,e.push(r),localStorage.setItem("favorites",JSON.stringify(e)),A(t)}function v(){let e=JSON.parse(localStorage.getItem("favorites"));t=!1;let s=e.filter(e=>e._id!==r._id);localStorage.setItem("favorites",JSON.stringify(s)),A(t)}localStorage.getItem("favorites")&&JSON.parse(localStorage.getItem("favorites")).map(e=>e._id).includes(r._id)&&(t=!0),function({name:e,equipment:t,burnedCalories:s,bodyPart:r,popularity:A,_id:d,time:v,target:n,rating:a,gifUrl:b},c){let f=`
+    <div class="backdrop">
+<div class="modal">
+<div class="modal-content">
+<button class="close-btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8332 1.16666L1.1665 12.8333M1.1665 1.16666L12.8332 12.8333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></button>
+<div class="modal-img-wrap">
+    <img class="modal-img" src="${b}" alt="exercise">
+    <div class="modal-img-overlay"></div>
+</div>
+<div class="modal-content-wrap">
+<div >
+    <h2 class="modal-title">${e}</h2>
+    <div class="modal-rating">
+        <p class="modal-rating-amount">${Math.round(a)}.0</p>
+        <ul class="modal-rating-list">
+            ${[1,2,3,4,5].map((e,t)=>t<Math.round(a)?`<li class="modal-rating-item"><svg class="modal-rating-stars gold-star"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#EEA10C"/>
+                  </svg></li>`:`<li class="modal-rating-item"><svg class="modal-rating-stars grey-star"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#1B1B1B20"/>
+                    </svg></li>`).join("")}
+        </ul>
+    </div>
+    <ul class="modal-details-list">
+        <li class="modal-details-item">
+            <p class="modal-details-item-title">Target</p>
+            <p class="modal-details-item-text">${n}</p>
+        </li>
+        <li class="modal-details-item">
+            <p class="modal-details-item-title">Body Part</p>
+            <p class="modal-details-item-text">${r}</p>
+        </li>
+        <li class="modal-details-item">
+            <p class="modal-details-item-title">Equipment</p>
+            <p class="modal-details-item-text">${t}</p>
+        </li>
+        <li class="modal-details-item">
+            <p class="modal-details-item-title">Popular</p>
+            <p class="modal-details-item-text">${A}</p>
+        </li>
+        <li class="modal-details-item">
+            <p class="modal-details-item-title">Burned calories</p>
+            <p class="modal-details-item-text">${s}/${v} min</p>
+        </li>
+    </ul>
+    <p class="modal-info">This refers to your core muscles, which include the rectus abdominis, obliques, and
+        transverse abdominis.
+        They're essential for maintaining posture, stability, and generating force in many movements. Exercises
+        that target the abs include crunches, leg raises, and planks.</p>
+    </div >
+    <div class="modal-btn-wrap">
+    <div class="favorite-wrap"></div>
+<button type="button" class="modal-add-rating-btn modal-btn" data-id="${d}">Give a rating</button>
+    </div >
+</div >
+</div >
+</div >
+</div >
+    `;p.insertAdjacentHTML("afterbegin",f)}(r,0),document.querySelector(".close-btn").addEventListener("click",O),A(t),document.querySelector(".modal-add-rating-btn");let n=document.querySelector(".backdrop-rating"),a=document.querySelector(".modal-add-rating-btn");document.querySelector(".rating-modal-send__btn");let b=document.querySelector(".rating-modal-close__btn"),c=document.querySelector(".rating-modal__form"),f=document.querySelector(".rating-modal__text"),u=document.querySelector(".rating-modal-star__svg");a.addEventListener("click",e=>{n.classList.remove("is-hidden-rating"),O()}),b.addEventListener("click",e=>{n.classList.add("is-hidden-rating")}),c.addEventListener("submit",e=>{if(e.preventDefault(),!1===e.target.elements.ratingEmail.value.includes("@")||!1===e.target.elements.ratingEmail.value.includes(".")){e.target.elements.ratingEmail.classList.add("rating-error-input");return}if(e.target.elements.ratingEmail.classList.remove("rating-error-input"),e.target.elements.ratingReview.value.length<=3){e.target.elements.ratingReview.classList.add("rating-error-input");return}if(e.target.elements.ratingReview.classList.remove("rating-error-input"),!1===f.hasAttribute("data-rating")){u.style.border="1px solid red";return}u.style.border="none",(async function(){try{let t=await fetch(`https://energyflow.b.goit.study/api/exercises/${a.getAttribute("data-id")}/rating`,{method:"PATCH",body:JSON.stringify({rate:Number(f.getAttribute("data-rating")),email:e.target.elements.ratingEmail.value,review:e.target.elements.ratingReview.value}),headers:{"Content-Type":"application/json; charset=UTF-8"}});return await t.json()}catch(e){console.log(e)}})().then(e=>{console.log(e),n.classList.add("is-hidden-rating")})})}function O(){document.querySelector(".backdrop").remove(),document.location.href.includes("fovorites")&&P()}console.log(B),B.forEach(e=>e.addEventListener("click",o));let D=document.querySelector(".exercises__list"),N=document.querySelector(".exercises-cards__pagination"),y=document.querySelector(".exercises__list"),m=document.querySelector(".search-exercises__input"),Z=document.querySelector(".search-exercises__button"),x=document.querySelector(".exercises-cards__pagination"),H=document.querySelector(".exercises__list"),L=document.querySelectorAll(".exercises__button"),M=document.querySelector(".exercises-cards__pagination");document.querySelectorAll(".exercises__item");let X=document.querySelector(".exercises__list"),j=document.querySelector(".exercises-btns__list"),T=document.querySelector(".exercises-cards__pagination"),G=document.querySelector(".exercises-search-box"),i=document.querySelectorAll(".exercises__button"),Y=null;l(),function(){let e=null,t=e=>{b(),n(e).then(e=>{c(),H.innerHTML="",e.results.forEach(e=>{H.insertAdjacentHTML("afterbegin",w(e))}),document.querySelectorAll(".body-parts-start__text").forEach(e=>e.addEventListener("click",o))})},s=t=>{M.innerHTML="";for(let e=0;e<t;e++)M.insertAdjacentHTML("beforeend",`<li class="exercises-pagination__item">
+          <button class="exercises-cards__page">${e+1}</button>
+        </li>`);(e=M.querySelector("button"))&&e.classList.add("exercises-active-page")};H.addEventListener("click",r=>{let A=r.target;"H3"===A.nodeName&&n(`https://energyflow.b.goit.study/api/exercises?muscles=${A.textContent.toLowerCase()}&page=1&limit=9`).then(r=>{s(r.totalPages),t(`https://energyflow.b.goit.study/api/exercises?muscles=${A.textContent.toLowerCase()}&page=1&limit=9`),L.forEach(e=>{e.classList.contains("exercises-active-button")&&e.classList.remove("exercises-active-button"),e.hasAttribute("data-body-parts")&&e.classList.add("exercises-active-button")}),M.addEventListener("click",s=>{if("BUTTON"!==s.target.nodeName)return;e&&e.classList.remove("exercises-active-page"),(e=s.target).classList.add("exercises-active-page");let r=s.target.textContent;t(`https://energyflow.b.goit.study/api/exercises?muscles=${A.textContent.toLowerCase()}&page=${r}&limit=9`)})})})}(),(Y=j.querySelector("button"))&&Y.classList.add("exercises-active-button"),X&&j.addEventListener("click",e=>{"UL"!==e.target.nodeName&&"LI"!==e.target.nodeName&&(X.innerHTML="",T.innerHTML="",G.style.display="none",i.forEach(e=>{e.classList.contains("exercises-active-button")&&e.classList.remove("exercises-active-button")}),Y&&Y.classList.remove("exercises-active-button"),(Y=e.target).classList.add("exercises-active-button"),e.target.hasAttribute("data-muscles")&&l(),e.target.hasAttribute("data-body-parts")&&(function(){let e=null,t=e=>{b(),n(e).then(e=>{c(),D.innerHTML="",e.results.forEach(e=>{D.insertAdjacentHTML("beforeend",w(e))}),document.querySelectorAll(".body-parts-start__text").forEach(e=>e.addEventListener("click",o))})},s=t=>{N.innerHTML="";for(let e=0;e<t;e++)N.insertAdjacentHTML("beforeend",`<li class="exercises-pagination__item">
+          <button class="exercises-cards__page">${e+1}</button>
+        </li>`);(e=N.querySelector("button"))&&e.classList.add("exercises-active-page")};n("https://energyflow.b.goit.study/api/exercises?page=1&bodypart=waist&limit=9").then(r=>{s(r.totalPages),t("https://energyflow.b.goit.study/api/exercises?page=1&bodypart=waist&limit=9"),N.addEventListener("click",s=>{if("BUTTON"!==s.target.nodeName)return;e&&e.classList.remove("exercises-active-page"),(e=s.target).classList.add("exercises-active-page");let r=s.target.textContent;t(`https://energyflow.b.goit.study/api/exercises?page=${r}&bodypart=waist&limit=9`)})})}(),G.style.display="block"))}),function(){let e=null,t=e=>{b(),n(e).then(e=>{c(),y.innerHTML="",e.results.forEach(e=>{y.insertAdjacentHTML("beforeend",w(e))}),document.querySelectorAll(".body-parts-start__text").forEach(e=>e.addEventListener("click",o))})},s=t=>{if(x){x.innerHTML="";for(let e=0;e<t;e++)x.insertAdjacentHTML("beforeend",`<li class="exercises-pagination__item">
+            <button class="exercises-cards__page">${e+1}</button>
+          </li>`);(e=x.querySelector("button"))&&e.classList.add("exercises-active-page")}};Z&&Z.addEventListener("click",r=>{n(`https://energyflow.b.goit.study/api/exercises?muscles=${m.value}&page=1&limit=9`).then(r=>{if(0===r.results.length){y.innerHTML="",x.innerHTML="",y.insertAdjacentHTML("beforebegin",`
+            <h2 class="exercises-no-results__text">
+              Unfortunately, <span class="exercises-no-results__span">no results</span> were found. You may want to consider other search
+              options to find the exercise you are looking for. Our range is wide and you
+              have the opportunity to find more options that suit your needs.
+            </h2>`);return}{let A=document.querySelector(".exercises-no-results__text");A&&A.remove(),s(r.totalPages),t(`https://energyflow.b.goit.study/api/exercises?muscles=${m.value}&page=1&limit=9`),x.addEventListener("click",s=>{if("BUTTON"!==s.target.nodeName)return;e&&e.classList.remove("exercises-active-page"),(e=s.target).classList.add("exercises-active-page");let r=s.target.textContent;t(`https://energyflow.b.goit.study/api/exercises?muscles=${m.value}&page=${r}&limit=9`)})}})})}(),document.querySelector(".footer__form").addEventListener("submit",e=>{e.preventDefault();let t={email:e.currentTarget.elements.email.value};console.log(t),fetch("https://energyflow.b.goit.study/api/subscription",{method:"POST",body:JSON.stringify(t),headers:{"Content-Type":"application/json; charset=UTF-8"}}).then(e=>e.json()).then(e=>console.log(e)).catch(e=>console.log(e)),e.currentTarget.reset()})}();
+//# sourceMappingURL=fovorites.c9f5af47.js.map

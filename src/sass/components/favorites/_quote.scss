@@ -1,6 +1,9 @@
+.empty_block {
+    height: 96px;
+}
+
 .favorites-quote {
     margin-bottom: 20px;
-    margin-top: 96px;
 }
 
 .quote-sport-box {
@@ -44,9 +47,12 @@
 }
 
 @media screen and (min-width: 768px) {
+    .empty_block {
+        height: 180px;
+    }
+
     .favorites-quote {
         margin-bottom: 16px;
-        margin-top: 180px;
     }
 
     .favorites-quote-adaptive-wrap {
@@ -71,8 +77,8 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .favorites-quote {
-        margin-top: 156px;
+    .empty_block {
+        height: 156px;
     }
 
     .quote-sport-box {

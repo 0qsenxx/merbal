@@ -4,3 +4,4 @@ import './js/exercisesAPI'
 import './js/exerciseModal'
 import './js/footer';
 import './js/favorites';
+

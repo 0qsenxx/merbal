@@ -32,6 +32,7 @@
 
 
 .btn-open-modal {
+    
     background: transparent;
     display: block;
     margin-left: 157px;
@@ -43,11 +44,12 @@
 }
 
 .btn-close-modal {
+    
     background: transparent;
 }
 
 .header-modal {
-    position: fixed;
+    position: absolute;
     display: none;
     top: -15px;
     left: 50%;
@@ -92,6 +94,7 @@
 }
 
 .box {
+    align-items: center;
     margin-top: 20px;
     display: flex;
 

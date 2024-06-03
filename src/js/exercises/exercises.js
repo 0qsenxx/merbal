@@ -33,22 +33,26 @@ if (exercisesListRef) {
 }
 
 let activeButton = null;
-activeButton = exercisesBtnsListRef.querySelector('button');
+if (exercisesBtnsListRef) {
+  activeButton = exercisesBtnsListRef.querySelector('button');
+}
 if (activeButton) {
   activeButton.classList.add('exercises-active-button');
 }
 
-exercisesBtnsListRef.addEventListener('click', evt => {
-  if (evt.target.nodeName !== 'BUTTON') {
-    return;
-  }
+if (exercisesBtnsListRef) {
+  exercisesBtnsListRef.addEventListener('click', evt => {
+    if (evt.target.nodeName !== 'BUTTON') {
+      return;
+    }
 
-  if (activeButton) {
-    activeButton.classList.remove('exercises-active-button');
-  }
-  activeButton = evt.target;
-  activeButton.classList.add('exercises-active-button');
-});
+    if (activeButton) {
+      activeButton.classList.remove('exercises-active-button');
+    }
+    activeButton = evt.target;
+    activeButton.classList.add('exercises-active-button');
+  });
+}
 
 searchExercises();
 selectMuscles();

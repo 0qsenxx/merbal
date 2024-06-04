@@ -4,20 +4,20 @@ const modal = document.querySelector(".header-modal");
 
 console.log(window.location.pathname);
 
-const modalHome = document.querySelector("[data-modalHome]");
-const modalFavorites = document.querySelector("[data-modalFavorites]");
+const modalHome = document.querySelector(".modal-home");
+const modalFavorites = document.querySelector(".modal-favorites");
 
-const headerHome = document.querySelector("[data-headerHome]");
-const headerFavorites = document.querySelector("[data-headerFavorites]");
+const headerHome = document.querySelector(".header-home");
+const headerFavorites = document.querySelector(".header-favorites");
 
 
 function windowDocument() {
     if(window.location.pathname !== "/fovorites.html") {
-        clickHome()
+        clickHome();
     } else {
-        clickFavorites()
-    }
-}
+        clickFavorites();
+    };
+};
 
 windowDocument();
 

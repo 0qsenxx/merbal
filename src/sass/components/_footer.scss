@@ -1,18 +1,21 @@
 footer {
+ 
   margin-top: 16px;
 }
 
 
 .footer-img {
+   padding-top: 40px;
   max-width: 335px;
   background-repeat: no-repeat;
-  border-radius: 50px;
+  border-radius: 30px;
 
   background-image: url('../images/footer/footer-img-mobile@1x.png');
   background-size: 335px 471px;
   background-position: 50% 50%;
 
   @media screen and (min-width: 768px) {
+    border-radius: 50px;
     display: flex;
     flex-wrap: wrap;
     background-size: 736px 576px;
@@ -35,7 +38,7 @@ footer {
 // NAV
 
 .footer-nav {
-  padding-top: 40px;
+
   margin-left: 20px;
 
 
@@ -118,7 +121,7 @@ footer {
     max-width: 345px;
     font-weight: 400;
     line-height: 50px;
-    margin-top: 64px;
+    // margin-top: 64px;
     letter-spacing: -1.08px;
 
   }

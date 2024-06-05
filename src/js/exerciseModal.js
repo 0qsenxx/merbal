@@ -14,6 +14,8 @@ export default async function onOpenModal(e) {
     if (favorites.map(el => el._id).includes(currentExercise._id)) {
       isFavorite = true;
     }
+  } else {
+    localStorage.setItem('favorites', "[]")
   }
   renderExerciseModal(currentExercise, isFavorite);
   const closeBtn = document.querySelector('.close-btn');
@@ -76,71 +78,74 @@ export default async function onOpenModal(e) {
     backdropRatingRef.classList.remove('is-hidden-rating');
     onClose();
   });
-  closeRatingModalBtnRef.addEventListener('click', evt => {
-    backdropRatingRef.classList.add('is-hidden-rating');
-  });
-
-  ratingFormRef.addEventListener('submit', evt => {
-    evt.preventDefault();
-
-    if (
-      evt.target.elements.ratingEmail.value.includes('@') === false ||
-      evt.target.elements.ratingEmail.value.includes('.') === false
-    ) {
-      evt.target.elements.ratingEmail.classList.add('rating-error-input');
-      return;
-    } else {
-      evt.target.elements.ratingEmail.classList.remove('rating-error-input');
-    }
-
-    if (evt.target.elements.ratingReview.value.length <= 3) {
-      evt.target.elements.ratingReview.classList.add('rating-error-input');
-      return;
-    } else {
-      evt.target.elements.ratingReview.classList.remove('rating-error-input');
-    }
-
-    if (ratingModalTextRef.hasAttribute('data-rating') === false) {
-      ratingModalStarSvgRef.style.border = '1px solid red';
-      return;
-    } else {
-      ratingModalStarSvgRef.style.border = 'none';
-    }
-    // if (evt.target.elements.ratingReview.value.length <= 3) {
-    //   evt.target.elements.ratingReview.classList.add('rating-error-input');
-    //   return;
-    // }
-
-    async function sendReview() {
-      try {
-        const res = await fetch(
-          `https://energyflow.b.goit.study/api/exercises/${giveARatingBtnRef.getAttribute(
-            'data-id'
-          )}/rating`,
-          {
-            method: 'PATCH',
-            body: JSON.stringify({
-              rate: Number(ratingModalTextRef.getAttribute('data-rating')),
-              email: evt.target.elements.ratingEmail.value,
-              review: evt.target.elements.ratingReview.value,
-            }),
-            headers: {
-              'Content-Type': 'application/json; charset=UTF-8',
-            },
-          }
-        );
-        const data = await res.json();
-        return data;
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    sendReview().then(data => {
-      console.log(data);
+  if (closeRatingModalBtnRef) {
+    closeRatingModalBtnRef.addEventListener('click', evt => {
       backdropRatingRef.classList.add('is-hidden-rating');
     });
-  });
+  }
+  if (ratingFormRef) {
+    ratingFormRef.addEventListener('submit', evt => {
+      evt.preventDefault();
+
+      if (
+        evt.target.elements.ratingEmail.value.includes('@') === false ||
+        evt.target.elements.ratingEmail.value.includes('.') === false
+      ) {
+        evt.target.elements.ratingEmail.classList.add('rating-error-input');
+        return;
+      } else {
+        evt.target.elements.ratingEmail.classList.remove('rating-error-input');
+      }
+
+      if (evt.target.elements.ratingReview.value.length <= 3) {
+        evt.target.elements.ratingReview.classList.add('rating-error-input');
+        return;
+      } else {
+        evt.target.elements.ratingReview.classList.remove('rating-error-input');
+      }
+
+      if (ratingModalTextRef.hasAttribute('data-rating') === false) {
+        ratingModalStarSvgRef.style.border = '1px solid red';
+        return;
+      } else {
+        ratingModalStarSvgRef.style.border = 'none';
+      }
+      // if (evt.target.elements.ratingReview.value.length <= 3) {
+      //   evt.target.elements.ratingReview.classList.add('rating-error-input');
+      //   return;
+      // }
+
+      async function sendReview() {
+        try {
+          const res = await fetch(
+            `https://energyflow.b.goit.study/api/exercises/${giveARatingBtnRef.getAttribute(
+              'data-id'
+            )}/rating`,
+            {
+              method: 'PATCH',
+              body: JSON.stringify({
+                rate: Number(ratingModalTextRef.getAttribute('data-rating')),
+                email: evt.target.elements.ratingEmail.value,
+                review: evt.target.elements.ratingReview.value,
+              }),
+              headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+              },
+            }
+          );
+          const data = await res.json();
+          return data;
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      sendReview().then(data => {
+        console.log(data);
+        backdropRatingRef.classList.add('is-hidden-rating');
+      });
+    });
+  }
 }
 
 function onClose() {

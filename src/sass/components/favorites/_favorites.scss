@@ -50,6 +50,7 @@
     .exercises-box {
         padding: 64px 48px;
         width: 736px;
+        padding-right: 16px;
     }
 
     .exercises__title {
@@ -63,6 +64,8 @@
         flex-direction: row;
         flex-wrap: wrap;
         column-gap: 14px;
+        overflow-y: scroll;
+        height: 480px;
     }
 
     .favorites-info {

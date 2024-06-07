@@ -9,9 +9,17 @@ const exercisesPaginationRef = document.querySelector(
   '.exercises-cards__pagination'
 );
 const exercisesSearchBoxRef = document.querySelector('.exercises-search-box');
-const exercisesBtnsRef = document.querySelectorAll('exercises__button');
+const exercisesBtnsRef = document.querySelectorAll('.exercises__button');
+let activeButton = null;
 
 getMusclesExercises();
+selectMuscles();
+
+activeButton = exercisesBtnsListRef.querySelector('button');
+if (activeButton) {
+  activeButton.classList.add('exercises-active-button');
+}
+
 if (exercisesListRef) {
   exercisesBtnsListRef.addEventListener('click', evt => {
     if (evt.target.nodeName === 'UL' || evt.target.nodeName === 'LI') {
@@ -20,6 +28,21 @@ if (exercisesListRef) {
     exercisesListRef.innerHTML = ``;
     exercisesPaginationRef.innerHTML = ``;
     exercisesSearchBoxRef.style.display = 'none';
+    exercisesBtnsRef.forEach(btn => {
+      if (btn.classList.contains('exercises-active-button')) {
+        btn.classList.remove('exercises-active-button')
+      }
+    })
+    if (activeButton) {
+      activeButton.classList.remove('exercises-active-button');
+    }
+    activeButton = evt.target;
+    activeButton.classList.add('exercises-active-button');
+    // exercisesBtnsRef.forEach(btn => {
+    //   if (btn.classList.contains('exercises-active-button')) {
+    //     btn.classList.remove('exercises-active-button')
+    //   }
+    // })
 
     if (evt.target.hasAttribute('data-muscles')) {
       getMusclesExercises();
@@ -32,36 +55,6 @@ if (exercisesListRef) {
   });
 }
 
-let activeButton = null;
-if (exercisesBtnsListRef) {
-  activeButton = exercisesBtnsListRef.querySelector('button');
-}
-if (activeButton) {
-  activeButton.classList.add('exercises-active-button');
-}
-
-if (exercisesBtnsListRef) {
-  exercisesBtnsListRef.addEventListener('click', evt => {
-    if (evt.target.nodeName !== 'BUTTON') {
-      return;
-    }
-
-    if (activeButton) {
-      activeButton.classList.remove('exercises-active-button');
-    }
-    activeButton = evt.target;
-    activeButton.classList.add('exercises-active-button');
-  });
-}
-
 searchExercises();
-selectMuscles();
-// export default function switchexercisesBtns(evt) {}
+// selectMuscles();
 
-// fetch(
-//   `https://energyflow.b.goit.study/api/filters?filter=Muscles&page=2`
-// )
-//   .then(res => res.json())
-//   .then(data => {
-//     console.log(data);
-//   });

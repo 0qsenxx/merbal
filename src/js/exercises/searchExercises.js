@@ -1,6 +1,7 @@
 import getExercisesByUrl from './getExercisesByUrl';
 import bodyPartsExercisesMarkup from './exercises-marup/bodyPartsExercisesMarkup';
 import onOpenModal from '../exerciseModal';
+import { showLoader, hideLoader } from './exercises-loader';
 
 const exercisesListRef = document.querySelector('.exercises__list');
 const exercisesSearchInputRef = document.querySelector(
@@ -17,7 +18,9 @@ export default function searchExercises() {
   let activeButton = null;
 
   const loadExercises = url => {
+    showLoader();
     getExercisesByUrl(url).then(data => {
+      hideLoader();
       exercisesListRef.innerHTML = '';
       data.results.forEach(exercise => {
         exercisesListRef.insertAdjacentHTML(

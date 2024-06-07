@@ -182,7 +182,7 @@ export default async function onOpenModal(e) {
       .classList.remove('rating-modal-active-star');
     evt.target.reset();
   });
-    });
+    // });
   }
 
 }

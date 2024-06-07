@@ -20,7 +20,7 @@
   display: flex;
 
   @media screen and (min-width: 768px) {
-    gap: 90px;
+    gap: 81px;
   }
 
   @media screen and (min-width: 1440px) {
@@ -83,7 +83,7 @@
   background: rgb(255, 255, 255);
   display: flex;
   padding: 6px 26px;
-  gap: 10px;
+  // gap: 10px;
 
   @media screen and (min-width: 768px) {
     padding-top: 6px;
@@ -91,6 +91,19 @@
     padding-bottom: 6px;
     padding-right: 26px;
   }
+}
+
+.is-active__f {
+  border-radius: 30px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  padding: 6px 16px;
+
+}
+
+.is-active__f .header-nav__link {
+  color: rgb(27, 27, 27);
+
 }
 
 .is-active .header-nav__link {

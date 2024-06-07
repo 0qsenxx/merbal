@@ -25,13 +25,13 @@ function clickHome() {
     modalHome.classList.add("is-active");
     headerHome.classList.add("is-active");
 
-    modalFavorites.classList.remove("is-active");
-    headerFavorites.classList.remove("is-active");
+    modalFavorites.classList.remove("is-active__f");
+    headerFavorites.classList.remove("is-active__f");
 };
 
 function clickFavorites() {
-    modalFavorites.classList.add("is-active");
-    headerFavorites.classList.add("is-active");
+    modalFavorites.classList.add("is-active__f");
+    headerFavorites.classList.add("is-active__f");
 
     modalHome.classList.remove("is-active");
     headerHome.classList.remove("is-active");

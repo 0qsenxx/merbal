@@ -1,6 +1,9 @@
 .quote {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 16px;
+  }
 }
 
 .quote-box {
@@ -81,10 +84,10 @@
 }
 
 @media screen and (min-width: 768px) {
-  .quote {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
+  // .quote {
+  //   margin-top: 16px;
+  //   margin-bottom: 16px;
+  // }
 
   .quote-quotes-box {
     width: 48px;

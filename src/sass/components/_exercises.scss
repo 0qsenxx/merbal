@@ -1,6 +1,6 @@
 .exercises {
   padding-top: 20px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     padding-top: 16px;
@@ -15,12 +15,12 @@
 .exercises .container {
   // background-color: #e8e8e8;
   border-radius: 30px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  // padding-top: 40px;
+  // padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    // padding-top: 64px;
+    // padding-bottom: 64px;
     border-radius: 50px;
   }
 
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   gap: 6px;
 
   @media screen and (min-width: 768px) {
@@ -139,10 +139,12 @@
   max-height: 42px;
   border: none;
   width: 295px;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     width: 246px;
     max-height: 48px;
+    margin-bottom: 0;
   }
 
   @media screen and (min-width: 1440px) {
@@ -386,7 +388,6 @@
 
   @media screen and (min-width: 1440px) {
     width: 424px;
-    // height: 173px;
   }
 }
 

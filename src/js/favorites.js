@@ -7,6 +7,10 @@ export function favoritesRender() {
         const favorites = JSON.parse(localStorage.getItem('favorites'));
         if (favorites.length) {
             favoritesMarkUp(favorites);
+            const delSvg = document.querySelectorAll(".body-parts-workout__del-svg")
+            if (delSvg) {
+                delSvg.forEach(el => el.addEventListener("click", onDelCard))
+            }
         } else {
             if (favoritesList) {
                 favoritesList.innerHTML = `<div class="favorites-info">
@@ -42,4 +46,12 @@ function favoritesMarkUp(array) {
         favoritesList.innerHTML = markUp.join('');
     }
     document.querySelectorAll('.body-parts-start__text').forEach(el => el.addEventListener('click', onOpenModal))
+}
+
+function onDelCard(e) {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    const elId = e.currentTarget.dataset.id
+    const newFavorites = favorites.filter(el => el._id !== elId);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    favoritesRender()
 }

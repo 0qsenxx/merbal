@@ -1,5 +1,5 @@
-import getExercise from './exercisesAPI.js';
-import { favoritesRender } from './render-favorites.js';
+import getExercise from '../exercisesAPI.js';
+import { favoritesRender } from '../render-favorites.js';
 import { alert, defaultModules, success } from '@pnotify/core';
 import * as PNotifyMobile from '@pnotify/mobile';
 defaultModules.set(PNotifyMobile, {});

@@ -28,6 +28,10 @@
   
   }
 
+  .is-active__f .modal-nav__link {
+    color: rgb(27, 27, 27);
+  
+  }
 
 
 
@@ -49,11 +53,11 @@
 }
 
 .header-modal {
-    position: absolute;
+    position: fixed;
     display: none;
-    top: -15px;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -5px);
+    transform: translate(-50%);
 
     width: 335px;
     border-radius: 30px;

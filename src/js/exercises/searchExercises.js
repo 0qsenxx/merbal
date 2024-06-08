@@ -1,6 +1,7 @@
 import getExercisesByUrl from './getExercisesByUrl';
 import bodyPartsExercisesMarkup from './exercises-marup/bodyPartsExercisesMarkup';
 import onOpenModal from '../exerciseModal';
+import { showLoader, hideLoader } from './exercises-loader';
 
 const exercisesListRef = document.querySelector('.exercises__list');
 const exercisesSearchInputRef = document.querySelector(
@@ -17,7 +18,9 @@ export default function searchExercises() {
   let activeButton = null;
 
   const loadExercises = url => {
+    showLoader();
     getExercisesByUrl(url).then(data => {
+      hideLoader();
       exercisesListRef.innerHTML = '';
       data.results.forEach(exercise => {
         exercisesListRef.insertAdjacentHTML(
@@ -52,7 +55,7 @@ export default function searchExercises() {
   if (exercisesSearchButton) {
     exercisesSearchButton.addEventListener('click', evt => {
       getExercisesByUrl(
-        `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value}&page=1&limit=9`
+        `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value.toLowerCase()}&page=1&limit=9`
       ).then(data => {
         if (data.results.length === 0) {
           exercisesListRef.innerHTML = ``;
@@ -76,7 +79,7 @@ export default function searchExercises() {
           }
           setupPagination(data.totalPages);
           loadExercises(
-            `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value}&page=1&limit=9`
+            `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value.toLowerCase()}&page=1&limit=9`
           );
           exercisesPaginationRef.addEventListener('click', evt => {
             if (evt.target.nodeName !== 'BUTTON') {
@@ -89,7 +92,7 @@ export default function searchExercises() {
             activeButton.classList.add('exercises-active-page');
             const page = evt.target.textContent;
             loadExercises(
-              `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value}&page=${page}&limit=9`
+              `https://energyflow.b.goit.study/api/exercises?muscles=${exercisesSearchInputRef.value.toLowerCase()}&page=${page}&limit=9`
             );
           });
         }

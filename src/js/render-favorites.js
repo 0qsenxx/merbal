@@ -1,19 +1,19 @@
-import bodyPartsExercisesMarkup from "./exercises/exercises-marup/bodyPartsExercisesMarkup";
+import bodyPartsExercisesMarkup from './exercises/exercises-marup/bodyPartsExercisesMarkup';
 import onOpenModal from './exerciseModal';
 const favoritesList = document.querySelector('.favorites-exercises__list');
 
 export function favoritesRender() {
-    if (localStorage.getItem('favorites')) {
-        const favorites = JSON.parse(localStorage.getItem('favorites'));
-        if (favorites.length) {
-            favoritesMarkUp(favorites);
-            const delSvg = document.querySelectorAll(".body-parts-workout__del-svg")
-            if (delSvg) {
-                delSvg.forEach(el => el.addEventListener("click", onDelCard))
-            }
-        } else {
-            if (favoritesList) {
-                favoritesList.innerHTML = `<div class="favorites-info">
+  if (localStorage.getItem('favorites')) {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    if (favorites.length) {
+      favoritesMarkUp(favorites);
+      const delSvg = document.querySelectorAll('.body-parts-workout__del-svg');
+      if (delSvg) {
+        delSvg.forEach(el => el.addEventListener('click', onDelCard));
+      }
+    } else {
+      if (favoritesList) {
+        favoritesList.innerHTML = `<div class="favorites-info">
                 <svg class="favorites-info-img" width="116" height="71" viewBox="0 0 116 71" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <rect x="0.5" width="115" height="71" fill="url(#pattern0_3520_8245)"/>
                 <defs>
@@ -25,33 +25,33 @@ export function favoritesRender() {
                 </svg>
                 <p class="favorites-info-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future😊</p>
             </div>`;
-            }
-        }
-    } else {
-        if (favoritesList) {
-            favoritesList.innerHTML = `<div class="favorites-info">
+      }
+    }
+  } else {
+    if (favoritesList) {
+      favoritesList.innerHTML = `<div class="favorites-info">
             <img class="favorites-info-img" src="./images/favorites/dumbbell.png" alt="dumbbell">
             <p class="favorites-info-text">It appears that you haven't added any exercises to your favorites yet. To get started, you can add exercises that you like to your favorites for easier access in the future😊</p>
         </div>`;
-        }
     }
+  }
 }
-favoritesRender()
+favoritesRender();
 
 function favoritesMarkUp(array) {
-    const markUp = array.map(
-        item => bodyPartsExercisesMarkup(item)
-    );
-    if (favoritesList) {
-        favoritesList.innerHTML = markUp.join('');
-    }
-    document.querySelectorAll('.body-parts-start__text').forEach(el => el.addEventListener('click', onOpenModal))
+  const markUp = array.map(item => bodyPartsExercisesMarkup(item));
+  if (favoritesList) {
+    favoritesList.innerHTML = markUp.join('');
+  }
+  document
+    .querySelectorAll('.body-parts-start__text')
+    .forEach(el => el.addEventListener('click', onOpenModal));
 }
 
 function onDelCard(e) {
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
-    const elId = e.currentTarget.dataset.id
-    const newFavorites = favorites.filter(el => el._id !== elId);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
-    favoritesRender()
+  const favorites = JSON.parse(localStorage.getItem('favorites'));
+  const elId = e.currentTarget.dataset.id;
+  const newFavorites = favorites.filter(el => el._id !== elId);
+  localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  favoritesRender();
 }

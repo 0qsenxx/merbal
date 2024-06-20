@@ -307,3 +307,9 @@
     margin-bottom: 8px;
   }
 }
+
+.body-parts-workout__del-svg {
+  &:hover {
+    cursor: pointer;
+  }
+}
